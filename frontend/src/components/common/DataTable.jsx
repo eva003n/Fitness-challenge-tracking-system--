@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 import { Trash2, Pen, ChevronLeft, ChevronRight } from "lucide-react";
 import SearchBar from "./SearchBar";
-import CheckBox from "./Checkbox";
+import CheckBox from "./CheckBox";
 import { getDateByDay } from "../../services/formatDate";
 import { deleteActivity, getActivity, updateActivity } from "../../services";
 import { toast } from "react-toastify";
