@@ -28,7 +28,7 @@ const Reports = () => {
     month: new Date().getMonth() + 1,
   });
 
-  const [isLoading, setIgsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     heartRate: [],
     calories: [],
