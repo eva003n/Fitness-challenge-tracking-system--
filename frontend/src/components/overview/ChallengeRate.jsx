@@ -45,7 +45,7 @@ const ChallengeRate = () => {
     getRate();
   }, []);
   return (
-    <div className="rounded-md bg-gray-800/30 p-4 text-gray-400">
+    <div className="rounded-md bg-slate-200 dark:bg-gray-800/30 p-4 text-gray-400">
       <p className="mb-2 grow text-center text-[1.2rem] font-normal sm:text-left">
         Challenge completion rate
       </p>

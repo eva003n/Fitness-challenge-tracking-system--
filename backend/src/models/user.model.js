@@ -167,10 +167,10 @@ userSchema.statics.findUser = async function (userId) {
 
 const User = mongoose.model("User", userSchema);
 //Avoid automatic  collection and index creation in production
-if (process.env.NODE_ENV === "production") {
-  await User.createCollection();
-  await User.createIndexes();
-}
+// if (process.env.NODE_ENV === "production") {
+//   await User.createCollection();
+//   await User.createIndexes();
+// }
 User.on("index", (error) => {
   if (error) logger.error(`Error building indexes at user model`);
   logger.info("Successful index building at user model");
