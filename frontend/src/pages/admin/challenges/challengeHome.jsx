@@ -11,7 +11,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { getDateDifference, getDateByDay } from "../../../services/formatDate";
 import { getChallenges } from "../../../services";
-import Wrapper from "../../../components/common/wrapper";
+import Wrapper from "../../../components/common/Wrapper";
 import HeaderTop from "../../../components/common/headerTop";
 
 const TABLE_HEADERS = [

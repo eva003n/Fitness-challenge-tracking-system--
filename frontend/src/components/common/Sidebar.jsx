@@ -15,7 +15,7 @@ import Button from "./Button";
 import List from "./List";
 import { useAuth } from "../../context/authProvider";
 import Avatar from "./avatar";
-import Notify from "./notify";
+import Notify from "./Notify";
 import { useState } from "react";
 
 // const _user = JSON.parse(localStorage.getItem("user"));WNB21` `

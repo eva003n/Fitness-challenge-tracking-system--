@@ -167,6 +167,7 @@ userSchema.statics.findUser = async function (userId) {
 
 const User = mongoose.model("User", userSchema);
 //Avoid automatic  collection and index creation in production
+<<<<<<< HEAD
 // if (process.env.NODE_ENV === "production") {
 //   await User.createCollection();
 //   await User.createIndexes();
@@ -175,5 +176,9 @@ User.on("index", (error) => {
   if (error) logger.error(`Error building indexes at user model`);
   logger.info("Successful index building at user model");
 });
+=======
+
+
+>>>>>>> c193d4c6919a51cab11cec0d99190518088fcc78
 
 export default User;

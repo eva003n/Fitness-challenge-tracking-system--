@@ -19,7 +19,7 @@ import {
 } from "../../services";
 import Scrim from "../../components/common/Scrim";
 import Select from "../../components/common/Select";
-import Wrapper from "../../components/common/wrapper";
+import Wrapper from "../../components/common/Wrapper";
 import HeaderTop from "../../components/common/headerTop";
 const TABLE_HEADERS = ["Avatar", "Username", "Email", "Role","Status", "Joined", "Updated at", "Action"];
 const TABLEDATA = [

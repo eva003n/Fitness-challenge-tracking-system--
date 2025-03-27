@@ -1,6 +1,6 @@
 import Container from "../../components/common/Container";
 import HeaderTop from "../../components/common/headerTop";
-import Wrapper from "../../components/common/wrapper";
+import Wrapper from "../../components/common/Wrapper";
 
 
 import {  useEffect } from "react";
