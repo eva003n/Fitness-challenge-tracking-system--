@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
 //create and configure axios instance
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URI,
+  baseURL: "https://fitrack-de4y.onrender.com",
   withCredentials: true,
   timeout: 1200000, //after 2mins
 });
