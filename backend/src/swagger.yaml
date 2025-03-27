@@ -1,0 +1,461 @@
+openapi: 3.0.4
+info:
+  title: Fitness Challenge Tracking API
+  description: Fitness challenge tracking api that enables challenge creation and progress tracking overtime
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://github.com/eva003n/fitness-challenge-tracking-system/blob/main/LICENSE
+  contact:
+    name: Evan ngugi wambui
+    email: evanngugi547@gmail.com
+servers:
+  #development server
+  - url: http://localhost:8080/api/v1
+    description: Development server
+
+#production server
+
+schemas: [http, https]
+paths:
+  /auth/login:
+    post:
+      summary: Login user
+      tags:
+        - authentication
+      description: This endpoint logs in a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: A json object of the user with details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        $ref: "#/components/schemas/User"
+
+                  accessToken:
+                    type: string
+                  message:
+                    type: string
+        ##known errors
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        #default error message | unexpected errors
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /auth/signup:
+    post:
+      summary: Sign up user
+      tags:
+        - authentication
+      description: This endpoint signs or creates a new  user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "201":
+          description: A json object of the user with details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        $ref: "#/components/schemas/User"
+                  message:
+                    type: string
+          "400":
+            $ref: "#/components/responses/BadRequest"
+
+          "409":
+            $ref: "#/components/responses/Conflict"
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /auth/logout:
+    delete:
+      summary: Logout user
+      tags:
+        - authentication
+      description: This endpoint logs out a user
+      responses:
+        "200":
+          description: A json empty object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  message:
+                    type: string
+
+          "400":
+            $ref: "#/components/responses/BadRequest"
+          "401":
+            $ref: "#/components/responses/Unauthorized"
+          "404":
+            $ref: "#/components/responses/NotFound"
+          default:
+            description: Something went wrong
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Error"
+
+  /auth/refreshToken:
+    post:
+      summary: Refresh token
+      tags:
+        - authentication
+      description: This endpoint regenerates a new refresh and access token
+      responses:
+        "200":
+          description: A json object with new access token
+          content:
+            application/json:
+              schema:
+                properties:
+                  statusCode:
+                    type: integer
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      accessToken:
+                        type: string
+                  message:
+                    type: string
+
+          "400":
+            $ref: "#/components/responses/BadRequest"
+          "401":
+            $ref: "#/components/responses/Unauthorized"
+          "404":
+            $ref: "#/components/responses/NotFound"
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /users:
+    get:
+      summary: Get users
+      tags:
+        - users
+      description: This endpoint returns a list of users
+      operationId: getUsers
+      responses:
+        "200":
+          description: A json array of users iof users with details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /users/{id}:
+    get:
+      summary: Get user by id
+      tags:
+        - users
+      description: This endpoint returns a single user
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the user to get
+          required: true
+
+      responses:
+        "200":
+          description: A json object of the user with details
+          content:
+          operationId: getUserById
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete user by id
+      tags:
+        - users
+      description: This endpoint deletes a single user
+      operationId: deleteUserById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the user to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A JSON empty object of the user
+          content:
+            application/json:
+              schema:
+                type: object
+
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update user by id
+      tags:
+        - users
+      description: This endpoint updates a single user
+      operationId: updateUserById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the user to update
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: A JSON object of the user with details
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/User"
+          default:
+            description: Something went wrong
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Error"
+  components:
+    schemas:
+      User:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+
+          email:
+            type: string
+            format: email
+          bio:
+            type: string
+          userName:
+            type: string
+          name:
+            type: string
+          avatar:
+            type: object
+            properties:
+              imageUrl:
+                type: string
+              imageId:
+                type: string
+          socialsLinks:
+            type: object
+            properties:
+              Twitter:
+                type: string
+              Facebook:
+                type: string
+              Instagram:
+                type: string
+              Tiktok:
+                type: string
+
+  /challenges:
+    post:
+      summary: Create challenge
+      tags:
+        - challenges
+      description: This endpoint creates a single challenge
+      operationId: createChallenge
+      responses:
+        "201":
+          description: A json object of the challenge with details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Challenge"
+
+      get:
+        summary: Get challenge
+        tags:
+          - challenges
+        description: This endpoint returns a list of challenges
+        operationId: getChallenges
+        responses:
+          "200":
+            description: A json array of challenges
+
+  /challenges/{id}:
+    get:
+      summary: Get challenge by id
+      tags:
+        - challenges
+      description: This endpoint returns a single challenge
+      operationId: getChallengeById
+      responses:
+        "200":
+          description: A json object of the challenge with details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Challenge"
+
+    delete:
+      summary: Delete challenge by id
+      tags:
+        - challenges
+      description: This endpoint deletes a single challenge
+      operationId: deleteChallengeById
+      responses:
+        "200":
+          description: A json empty object of the challenge
+
+    put:
+      summary: Update challenge by id
+      tags:
+        - challenges
+      description: This endpoint updates a single challenge
+      operationId: updateChallengeById
+      responses:
+        "200":
+          description: A json object of the challenge with details
+
+  /challenges/analytics/{user_id}:
+    get:
+      summary: Get challenge analytics
+      tags:
+        - challenges
+      description: This endpoint returns a list of analytics
+      operationId: getAnalytics
+      responses:
+        "200":
+          description: A json array of analytics
+
+
+#Default error object
+components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+             $ref: "#/components/schemas/Error"
+    Conflict:
+      description: The requested resource already exists
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    BadRequest:
+       description: The request was invalid
+       content:
+         application/json:
+           schema:
+             $ref: "#/components/schemas/Error"
+    Unauthorized:
+         description: Unauthorized request
+         content:
+           application/json:
+             schema:
+               $ref: "#/components/schemas/Error"
+  schemas:
+    Error:
+      properties:
+        statusCode:
+          type: number
+        success:
+          type: boolean
+        data:
+          type: string
+        error:
+          type: string

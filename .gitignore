@@ -1,0 +1,5 @@
+##dotenv variables
+*.env
+*.env.p*
+*.env.*.local
+*/node_modules
