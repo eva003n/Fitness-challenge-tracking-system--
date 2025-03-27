@@ -36,8 +36,8 @@ const RoutePaths = () => {
       {/* Public routes for unauthenticated users */}
       <Route path="/" element={<PublicRoute />}>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="faq" element={<h1>FQA</h1>} />
+        {/* <Route path="about" element={<About />} /> */}
+        {/* <Route path="faq" element={<h1>FQA</h1>} /> */}
         <Route path="login" element={<SignUpPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="redirect" element={<Redirect />} />
