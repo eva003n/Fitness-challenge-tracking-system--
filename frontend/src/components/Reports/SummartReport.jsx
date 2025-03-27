@@ -11,7 +11,7 @@ const UserSummaryReport = ({ metrics, ref }) => {
   const { user } = useAuth();
 
   return (
-    <div ref={ref} className="w-[20rem] max-w-[48rem] rounded-lg bg-slate-100 p-6 shadow-lg dark:bg-gray-900">
+    <div ref={ref} className="max-w-2xl rounded-lg bg-slate-100 p-6 shadow-lg dark:bg-gray-900">
       {/* Header Section */}
       <div className="flex items-center justify-between border-b pb-4">
         {/* User Details (Top Left) */}

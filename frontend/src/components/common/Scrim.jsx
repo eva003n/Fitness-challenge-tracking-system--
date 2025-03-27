@@ -31,7 +31,7 @@ transition={{duration:0}}
 initial={{opacity: 0, y:0}}
 animate={{opacity: 1, y: 6}}
 transition={{duration: .3}}
-className="w-full flex items-center justify-center "
+className=" flex items-center justify-center "
 // className="w-[90%] max-w-[25rem]"
 >
 {isLoading? <Loader/>:children}
