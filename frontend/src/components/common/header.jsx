@@ -7,7 +7,7 @@ import { Bell, Menu, Flame, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authProvider";
 import SearchBar from "./SearchBar";
-import Notify from "./notify";
+import Notify from "./notify.jsx";
 import Streak from "./Streak";
 
 const Header = () => {
