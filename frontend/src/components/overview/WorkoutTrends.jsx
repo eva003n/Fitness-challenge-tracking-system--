@@ -40,7 +40,7 @@ if(response.success) {
   getSummary()
     },[])
   return (
-    <div className="rounded-md bg-slate-200 dark:bg-gray-800/30 p-4 text-gray-400">
+    <div className="rounded-md bgslatedark:bg-gray-800/30 p-4 text-gray-400">
     <p className="mb-2 grow text-[1.2rem] font-normal text-center sm:text-left">
           Workout trends
         </p>
