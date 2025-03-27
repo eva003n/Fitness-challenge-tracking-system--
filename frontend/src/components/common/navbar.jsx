@@ -23,16 +23,16 @@ const Navbar = ({ ...props }) => {
                 Home
               </NavLink>
             </li>
-<<<<<<< HEAD
+
             {/* <li>
 =======
 {/*             <li>
->>>>>>> c193d4c6919a51cab11cec0d99190518088fcc78
+
               <NavLink to="/about" end className="tracking-wider">
                 About
               </NavLink>
             </li> */}
-<<<<<<< HEAD
+
             {/* <li>
 =======
 {/*             <li>

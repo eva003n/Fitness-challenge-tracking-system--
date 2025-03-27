@@ -6,13 +6,11 @@ import Avatar from "./avatar";
 import { Bell, Menu, Flame, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authProvider";
-<<<<<<< HEAD
 
-import Notify from "./notify";
-=======
+
 import SearchBar from "./SearchBar";
 import Notify from "./Notify";
->>>>>>> c193d4c6919a51cab11cec0d99190518088fcc78
+
 import Streak from "./Streak";
 
 const Header = () => {
