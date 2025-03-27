@@ -118,12 +118,13 @@ const logIn = asyncHandler(
         httpOnly: true, //prevent xss attacks
         maxAge: 15 * 60 * 1000, //15min
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict", //CSRF cross site resource forgery attack
+        // sameSite: "strict", //CSRF cross site resource forgery attack
+        sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
       })
       .cookie("RefreshToken", refreshToken, {
         httpOnly: true, //prevent xss attacks,cookie being accessed via js
         secure: process.env.NODE_ENV === "production", //work only with https in production
-        sameSite: "strict",
+        sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
         maxAge: 24 * 60 * 60 * 1000, //1day
       })
       .json(
@@ -207,12 +208,14 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
       httpOnly: true, //prevent xss attacks
       maxAge: 15 * 60 * 1000, //15min
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict", //CSRF cross site resource forgery attack
+      // sameSite: "strict", //CSRF cross site resource forgery attack
+         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
     })
     .cookie("RefreshToken", refreshToken, {
       httpOnly: true, //prevent xss attacks,cookie being accessed via js
       secure: process.env.NODE_ENV === "production", //work only with https in production
-      sameSite: "strict",
+      // sameSite: "strict",
+         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
       maxAge: 24 * 60 * 60 * 1000, //1day
     })
     .json(
@@ -299,12 +302,14 @@ const tokenRefresh = asyncHandler(async (req, res, next) => {
       httpOnly: true, //prevent xss attacks
       maxAge: 15 * 60 * 1000, //15min
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict", //CSRF cross site resource forgery attack
+      // sameSite: "strict", //CSRF cross site resource forgery attack
+         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
     })
     .cookie("RefreshToken", refreshToken, {
       httpOnly: true, //prevent xss attacks,cookie being accessed via js
       secure: process.env.NODE_ENV === "production", //work only with https in production
-      sameSite: "strict",
+      // sameSite: "strict",
+         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
       maxAge: 24 * 60 * 60 * 1000, //1day
     })
     .json(
@@ -355,12 +360,14 @@ const configureCookie = (res, accessToken, refreshToken) => {
     httpOnly: true, //prevent xss attacks
     maxAge: 15 * 60 * 1000, //15min
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict", //CSRF cross site resource forgery attack
+    // sameSite: "strict", //CSRF cross site resource forgery attack
+       sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
   });
   res.cookie("RefreshToken", refreshToken, {
     httpOnly: true, //prevent xss attacks,cookie being accessed via js
     secure: process.env.NODE_ENV === "production", //work only with https in production
-    sameSite: "strict",
+    // sameSite: "strict",
+       sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
     maxAge: 24 * 60 * 60 * 1000, //1day
   });
 };
