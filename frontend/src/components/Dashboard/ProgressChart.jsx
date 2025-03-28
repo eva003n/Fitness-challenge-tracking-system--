@@ -33,7 +33,7 @@ const ProgressChart = ({ isLoading }) => {
 
   return (
     <section
-      className={`rounded-lg bg-slate-200 px-2 py-4 sm:px-4 dark:bg-gray-800/50 ${isLoading && "animate-pulse"}`}
+      className={`rounded-lg bg-slate-100 px-2 py-4 sm:px-4 dark:bg-gray-800/50 ${isLoading && "animate-pulse"}`}
     >
       <div className="flex items-start gap-4">
         {!isLoading && (

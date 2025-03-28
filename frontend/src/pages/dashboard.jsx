@@ -69,7 +69,7 @@ const Dashboard = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="min-h-[17.75rem] rounded-lg bg-slate-200 p-4 dark:bg-gray-800/50"
+            className="min-h-[17.75rem] rounded-lg bg-slate-100 p-4 dark:bg-gray-800/50"
           >
             {!isLoading && (
               <h2 className="text-1xl px-4 font-bold text-gray-500 dark:text-gray-200">
