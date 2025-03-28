@@ -15,9 +15,7 @@ const Home = () => {
             Track Your Progress. Stay Motivated. Achieve More
           </h1>
           <p className="text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-            recusandae quod voluptatum, placeat corporis minus? Dolorum laborum
-            recusandae veritatis nobis!
+          Take your fitness journey to the next level with our Fitness Challenge Tracking System! Whether you're a beginner or a pro, our platform helps you stay accountable and push your limits. Start your challenge today and achieve more than ever before!
           </p>
           <div className="flex items-center justify-center">
             <Link to={"/signup"} onClick={logInState(false)}>

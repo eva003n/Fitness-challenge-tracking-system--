@@ -60,7 +60,7 @@ const {user, token} = useAuth();
           !user &&  (
             <Button 
             icon={X}
-            color=" md:hidden"
+            className=" md:hidden"
             onClick={() => setIsOpen(false)} >
             </Button>
           )
@@ -72,7 +72,7 @@ const {user, token} = useAuth();
           <div className=" md:flex">
             <Button
               icon={Menu}
-              color=" md:hidden"
+              className=" md:hidden"
               onClick={handleClickMenu}
             />
           </div>

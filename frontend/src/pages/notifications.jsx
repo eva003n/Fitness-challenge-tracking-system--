@@ -78,7 +78,7 @@ const Notifications = () => {
           transition={{ duration: 0.3 }}
           className="grid gap-2 py-4 transition-all duration-300 sm:px-9"
         >
-          {isLoading &&  (
+          {isLoading && !notification &&  (
             <div className="flex justify-center">
               <Loader2 className={isLoading && "animate-spin text-gray-200"} />
             </div>

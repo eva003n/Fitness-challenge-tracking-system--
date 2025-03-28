@@ -123,7 +123,8 @@ const updateUsersStreak = asyncHandler(async (req, res, next) => {
 
   //check if last update in terms of day  is same as today if true exit otherwise continue
   if (similarityCheck(today, lastStreakUpdate)) {
-    return next(ApiError.conflictRequest(409, "Streak already updated")); // exit if already updated
+    return
+    //  next(ApiError.conflictRequest(409, "Streak already updated")); // exit if already updated
   }
   //if last update plus one day is same as today increase streak otherwise reset
 

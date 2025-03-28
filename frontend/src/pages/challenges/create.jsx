@@ -30,7 +30,7 @@ const NewChallenge = () => {
   const [data, setData] = useState({
     challengeName: "",
     description: "",
-    workOutType: "Running",
+    workOutType: "",
     startDate: "",
     endDate: "",
     difficulty: "Beginner",
@@ -85,6 +85,19 @@ const NewChallenge = () => {
       if (response.success) {
         toast.info(response.message);
         setIsLoading(false);
+        setData({
+          challengeName: "",
+          description: "",
+          workOutType: "",
+          startDate: "",
+          endDate: "",
+          difficulty: "",
+          image: "",
+          createdBy: "",
+          access: "",
+          instructions: "",
+          
+        })
       }
     } catch (e) {
       toast.error(e.response.error);
@@ -381,8 +394,8 @@ const NewChallenge = () => {
               loader={true}
               name={isLoading ? "Creating ..." : "Create"}
               className="bg-violet-600 text-[1rem] tracking-wide text-white"
-              disabled={isLoading}
-              // disabled={Object.values(data).some((value) => !value === "duration" || !value)}
+              // disabled={isLoading}
+              disabled={Object.values(data).some((value) => !value ) || isLoading}
             ></Button>
         </div>
       </form>

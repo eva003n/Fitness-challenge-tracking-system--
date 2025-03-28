@@ -42,6 +42,19 @@ const CreateChallenge = () => {
       if (response.success) {
         toast.info(response.message);
         setIsLoading(false);
+        setData({
+          challengeName: "",
+          description: "",
+          workOutType: "",
+          startDate: "",
+          endDate: "",
+          difficulty: "",
+          image: "",
+          createdBy: "",
+          access: "",
+          instructions: "",
+          
+        })
       }
     } catch (e) {
       toast.error(e.response.error);
@@ -239,7 +252,8 @@ const CreateChallenge = () => {
               loader={true}
               name={isLoading ? "Creating ..." : "Create"}
               className="bg-violet-600 text-[1rem] tracking-wide text-white"
-              disabled={isLoading}
+              disabled={Object.values(data).some((value) => !value ) || isLoading}
+
               // disabled={Object.values(data).some((value) => !value === "duration" || !value)}
             ></Button>
         </div>

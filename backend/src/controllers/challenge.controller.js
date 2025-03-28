@@ -694,7 +694,8 @@ const challengeProgress = asyncHandler(async (req, res, next) => {
 
   const progress = await Challenge.aggregate(aggregation);
   if (progress && !progress.length)
-    return next(ApiError.notFound(404, "Challenge progress not found"));
+    return 
+// next(ApiError.notFound(404, "Challenge progress not found"));
   const challenge = await Challenge.findById(id);
   console.log(progress);
 
