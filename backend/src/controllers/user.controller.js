@@ -88,6 +88,7 @@ const updateUser = asyncHandler(async (req, res, next) => {
       socialsLinks,
       password,
       weight,
+      role
     },
 
     {
