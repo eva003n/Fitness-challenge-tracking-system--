@@ -27,7 +27,7 @@ import { useSocket } from "../context/socket.io/socketContext";
 
 //container mx-auto grid md:grid-cols-[300px_1fr] gap-4
 const Profile = () => {
-  const { user, logOut } = useAuth();
+const { user, logOut } = useAuth();
   const { socket } = useSocket();
   const [update, setUpdate] = useState(false);
 
@@ -151,7 +151,9 @@ const Profile = () => {
           ></Button>
 
           <div className="col-start-1 flex flex-col gap-4">
-            <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))] gap-4">
+           {
+            User && user.role === "user" && (
+              <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))] gap-4">
               <StatsCard
                 title={"Current streaks"}
                 count={data.streaks ? data.streaks.current : 0}
@@ -166,7 +168,8 @@ const Profile = () => {
                 color={"fill-violet-600 text-violet-600"}
               />
             </div>
-
+            )
+           }
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -249,16 +252,23 @@ const Profile = () => {
                 onChange={(e) => handleChange(e)}
                 disabled={!update}
               />
-              <Label name={"Weight"} />
-              <Input
-                id="text"
-                type="text"
-                name="weight"
-                value={data.weight}
-                className="px-2 dark:bg-slate-700"
-                onChange={(e) => handleChange(e)}
-                disabled={!update}
-              />
+             {
+              user && user.role === "user" && (
+                <>
+                   <Label name={"Weight"} />
+                <Input
+                  id="text"
+                  type="text"
+                  name="weight"
+                  value={data.weight}
+                  className="px-2 dark:bg-slate-700"
+                  onChange={(e) => handleChange(e)}
+                  disabled={!update}
+                />
+                </>
+             
+              )
+             }
               <Label name={"Bio"} />
               <TextArea
                 value={data.bio}

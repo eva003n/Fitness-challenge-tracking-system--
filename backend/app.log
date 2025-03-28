@@ -119,3 +119,84 @@
 [32m[28-0338-2025 19:38:25:3825] info: 	Mongoose successfully connected to Mongodb server[39m
 [32m[28-0338-2025 19:38:25:3825] info: 	Server listening on http://localhost:8080...[39m
 [32m[28-0338-2025 19:38:26:3826] info: 	Successful index building at user model[39m
+[32m[28-0339-2025 19:39:18:3918] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0339-2025 19:39:18:3918] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0339-2025 19:39:19:3919] info: 	Successful index building at user model[39m
+[32m[28-0342-2025 19:42:05:425] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0342-2025 19:42:05:425] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0342-2025 19:42:06:426] info: 	Successful index building at user model[39m
+[32m[28-0312-2025 20:12:49:1249] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"3.582ms"}[39m
+[32m[28-0312-2025 20:12:49:1249] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.492ms"}[39m
+[32m[28-0312-2025 20:12:49:1249] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"401","responseTime":"22.823ms"}[39m
+[32m[28-0312-2025 20:12:49:1249] info: 	{"method":"OPTIONS","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"0.421ms"}[39m
+[32m[28-0312-2025 20:12:49:1249] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"401","responseTime":"4.980ms"}[39m
+[32m[28-0312-2025 20:12:50:1250] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"698.375ms"}[39m
+[32m[28-0312-2025 20:12:51:1251] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"304","responseTime":"563.854ms"}[39m
+[32m[28-0312-2025 20:12:51:1251] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"401","responseTime":"1604.367ms"}[39m
+[32m[28-0312-2025 20:12:52:1252] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"550.728ms"}[39m
+[32m[28-0312-2025 20:12:52:1252] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"533.017ms"}[39m
+[32m[28-0312-2025 20:12:53:1253] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"304","responseTime":"505.438ms"}[39m
+[32m[28-0312-2025 20:12:55:1255] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"304","responseTime":"532.007ms"}[39m
+[31m[28-0315-2025 20:15:43:1543] error: 	Mongoose disconnected from Mongodb server[39m
+[31m[28-0315-2025 20:15:43:1543] error: 	read ECONNRESET[39m
+[32m[28-0317-2025 20:17:14:1714] info: 	Mongoose reconnected to MongoDB server successfully[39m
+[31m[28-0330-2025 20:30:35:3035] error: 	Mongoose disconnected from Mongodb server[39m
+[32m[28-0330-2025 20:30:46:3046] info: 	Mongoose reconnected to MongoDB server successfully[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67bd250f374795ded727c2f9/summary","status":"200","responseTime":"0.426ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67bd250f374795ded727c2f9","status":"200","responseTime":"0.368ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67bd250f374795ded727c2f9/summary","status":"200","responseTime":"0.905ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67bd250f374795ded727c2f9","status":"200","responseTime":"2.195ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67bd250f374795ded727c2f9","status":"401","responseTime":"6.059ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"GET","url":"/api/v1/activities/67bd250f374795ded727c2f9/summary","status":"401","responseTime":"12.065ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67bd250f374795ded727c2f9","status":"401","responseTime":"6.959ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"GET","url":"/api/v1/activities/67bd250f374795ded727c2f9/summary","status":"401","responseTime":"13.367ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"OPTIONS","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"0.710ms"}[39m
+[32m[28-0335-2025 20:35:08:358] info: 	{"method":"OPTIONS","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"0.952ms"}[39m
+[32m[28-0335-2025 20:35:11:3511] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"2286.774ms"}[39m
+[32m[28-0335-2025 20:35:11:3511] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"2263.717ms"}[39m
+[32m[28-0335-2025 20:35:12:3512] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67bd250f374795ded727c2f9","status":"200","responseTime":"893.712ms"}[39m
+[32m[28-0335-2025 20:35:12:3512] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"401","responseTime":"3421.493ms"}[39m
+[32m[28-0335-2025 20:35:12:3512] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"401","responseTime":"3454.428ms"}[39m
+[32m[28-0335-2025 20:35:13:3513] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"599.095ms"}[39m
+[32m[28-0335-2025 20:35:13:3513] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67bd250f374795ded727c2f9","status":"200","responseTime":"907.526ms"}[39m
+[32m[28-0335-2025 20:35:13:3513] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"607.111ms"}[39m
+[32m[28-0335-2025 20:35:13:3513] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"586.786ms"}[39m
+[32m[28-0335-2025 20:35:13:3513] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"521.222ms"}[39m
+[32m[28-0335-2025 20:35:14:3514] info: 	{"method":"GET","url":"/api/v1/activities/67bd250f374795ded727c2f9/summary","status":"304","responseTime":"597.298ms"}[39m
+[32m[28-0335-2025 20:35:14:3514] info: 	{"method":"GET","url":"/api/v1/activities/67bd250f374795ded727c2f9/summary","status":"304","responseTime":"603.197ms"}[39m
+[32m[28-0335-2025 20:35:19:3519] info: 	{"method":"OPTIONS","url":"/api/v1/users/67bd250f374795ded727c2f9","status":"200","responseTime":"0.474ms"}[39m
+[32m[28-0335-2025 20:35:19:3519] info: 	{"method":"OPTIONS","url":"/api/v1/users/67bd250f374795ded727c2f9","status":"200","responseTime":"0.212ms"}[39m
+[32m[28-0335-2025 20:35:19:3519] info: 	{"method":"GET","url":"/api/v1/users/67bd250f374795ded727c2f9","status":"200","responseTime":"592.749ms"}[39m
+[32m[28-0335-2025 20:35:20:3520] info: 	{"method":"GET","url":"/api/v1/users/67bd250f374795ded727c2f9","status":"304","responseTime":"608.743ms"}[39m
+[32m[28-0335-2025 20:35:25:3525] info: 	{"method":"OPTIONS","url":"/api/v1/auth/logout","status":"200","responseTime":"0.475ms"}[39m
+[32m[28-0335-2025 20:35:26:3526] info: 	{"method":"DELETE","url":"/api/v1/auth/logout","status":"200","responseTime":"346.113ms"}[39m
+[32m[28-0337-2025 20:37:35:3735] info: 	{"method":"OPTIONS","url":"/api/v1/auth/login","status":"200","responseTime":"0.371ms"}[39m
+[32m[28-0337-2025 20:37:47:3747] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0337-2025 20:37:47:3747] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0337-2025 20:37:48:3748] info: 	Successful index building at user model[39m
+[32m[28-0338-2025 20:38:04:384] info: 	{"method":"OPTIONS","url":"/api/v1/auth/login","status":"200","responseTime":"0.974ms"}[39m
+[32m[28-0338-2025 20:38:05:385] info: 	{"method":"POST","url":"/api/v1/auth/login","status":"401","responseTime":"860.791ms"}[39m
+[32m[28-0338-2025 20:38:05:385] info: 	{"method":"OPTIONS","url":"/api/v1/auth/refreshtoken","status":"200","responseTime":"0.200ms"}[39m
+[32m[28-0338-2025 20:38:05:385] info: 	{"method":"POST","url":"/api/v1/auth/refreshtoken","status":"400","responseTime":"1.347ms"}[39m
+[32m[28-0338-2025 20:38:21:3821] info: 	{"method":"OPTIONS","url":"/api/v1/auth/login","status":"200","responseTime":"0.258ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"POST","url":"/api/v1/auth/login","status":"200","responseTime":"1004.362ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.322ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.253ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.257ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.355ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.374ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.309ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.182ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.144ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"585.091ms"}[39m
+[32m[28-0338-2025 20:38:22:3822] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"644.268ms"}[39m
+[32m[28-0338-2025 20:38:23:3823] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"304","responseTime":"515.417ms"}[39m
+[32m[28-0338-2025 20:38:23:3823] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"502.934ms"}[39m
+[32m[28-0338-2025 20:38:24:3824] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"304","responseTime":"1770.003ms"}[39m
+[32m[28-0338-2025 20:38:24:3824] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"1777.551ms"}[39m
+[32m[28-0338-2025 20:38:24:3824] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"304","responseTime":"494.940ms"}[39m
+[32m[28-0338-2025 20:38:24:3824] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"304","responseTime":"500.712ms"}[39m
+[32m[28-0338-2025 20:38:28:3828] info: 	{"method":"OPTIONS","url":"/api/v1/users/67cefddda506d6fdcaed210b","status":"200","responseTime":"0.145ms"}[39m
+[32m[28-0338-2025 20:38:28:3828] info: 	{"method":"OPTIONS","url":"/api/v1/users/67cefddda506d6fdcaed210b","status":"200","responseTime":"0.127ms"}[39m
+[32m[28-0338-2025 20:38:29:3829] info: 	{"method":"GET","url":"/api/v1/users/67cefddda506d6fdcaed210b","status":"200","responseTime":"511.688ms"}[39m
+[32m[28-0338-2025 20:38:29:3829] info: 	{"method":"GET","url":"/api/v1/users/67cefddda506d6fdcaed210b","status":"304","responseTime":"528.458ms"}[39m
