@@ -18,12 +18,9 @@ const getNotifications = asyncHandler(async (req, res, next) => {
 
   // emitSocketEvent(req, user_id, "notification", notifications);
   if (!notifications || !notifications.length)
-    return next(ApiError.notFound(404, "No notifications yet"));
-// emitSocketEvent(
-//   String(user_id),
-//   SOCKETEVENTENUM.NOTIFY_EVENT,
-//   notifications
-// )
+    return
+  //  next(ApiError.notFound(404, "No notifications yet"));
+
   return res
     .status(200)
     .json(

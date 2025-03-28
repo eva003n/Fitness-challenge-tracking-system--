@@ -57,6 +57,13 @@ const Notifications = () => {
       }
     };
     getUserNotifications();
+    const timer = setTimeout(() => {
+      getUserNotifications();
+    }, 5000)
+    return () => {
+      setIsLoading(false);
+      clearTimeout(timer);
+    };
   }, [notifications]);
   return (
     <Container>
@@ -71,12 +78,12 @@ const Notifications = () => {
           transition={{ duration: 0.3 }}
           className="grid gap-2 py-4 transition-all duration-300 sm:px-9"
         >
-          {isLoading && !notification && (
+          {isLoading &&  (
             <div className="flex justify-center">
               <Loader2 className={isLoading && "animate-spin text-gray-200"} />
             </div>
           )}
-          {notification === null && (
+          {!isLoading && notification === null && (
             <div className="text-center text-gray-400">
               <p className="">No notifications yet</p>
             </div>

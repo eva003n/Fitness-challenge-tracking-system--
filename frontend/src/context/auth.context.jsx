@@ -103,7 +103,6 @@ const AuthProvider = ({ children }) => {
     setIsLogIn(value);
   };
   const redirect = () => {
-    useEffect(() => {
       const sendToken = async () => {
         try {
           console.log("hello")
@@ -129,7 +128,6 @@ const AuthProvider = ({ children }) => {
       };
     }
     sendToken();
-    }, [])
   };
 
   useEffect(() => {

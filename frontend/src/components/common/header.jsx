@@ -56,18 +56,28 @@ const {user, token} = useAuth();
          <div className=" md:flex ">
          <Link to={ user && user.role === "admin"? "/admin/profile" : "/profile"}>{ <Avatar />}</Link>
          </div>
-          <Button 
-          icon={X}
-          color=" md:hidden"
-          onClick={() => setIsOpen(false)} >
-          </Button>
+         {
+          !user &&  (
+            <Button 
+            icon={X}
+            color=" md:hidden"
+            onClick={() => setIsOpen(false)} >
+            </Button>
+          )
+         }
         </div>
       )}
-      <Button
-      icon={Menu}
-       className="md:hidden text-violet-600"
-        onClick={handleClickMenu}>
-      </Button>
+      {
+        !user && (
+          <div className=" md:flex">
+            <Button
+              icon={Menu}
+              color=" md:hidden"
+              onClick={handleClickMenu}
+            />
+          </div>
+        )
+      }
     </header>
   );
 };

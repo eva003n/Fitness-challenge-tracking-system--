@@ -660,7 +660,8 @@ const getUserAtivitySummary = asyncHandler(async (req, res, next) => {
   const activitySummary = await Activity.aggregate(summaryAggregation);
  
   if (activitySummary && activitySummary.length === 0)
-    return next(ApiError.notFound(404, "No activity summary exists"));
+    return 
+  // next(ApiError.notFound(404, "No activity summary exists"));
 
   return res
     .status(200)

@@ -1,0 +1,159 @@
+[32m[28-0318-2025 15:18:11:1811] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0318-2025 15:18:11:1811] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0318-2025 15:18:12:1812] info: 	Successful index building at user model[39m
+[32m[28-0323-2025 15:23:11:2311] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"2.222ms"}[39m
+[32m[28-0323-2025 15:23:11:2311] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"0.420ms"}[39m
+[32m[28-0323-2025 15:23:19:2319] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0323-2025 15:23:19:2319] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0323-2025 15:23:20:2320] info: 	Successful index building at user model[39m
+[32m[28-0324-2025 15:24:42:2442] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"2.350ms"}[39m
+[32m[28-0324-2025 15:24:42:2442] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"0.503ms"}[39m
+[32m[28-0324-2025 15:24:44:2444] info: 	{"method":"POST","url":"/api/v1/auth/github/oauth","status":"500","responseTime":"1560.059ms"}[39m
+[32m[28-0324-2025 15:24:45:2445] info: 	{"method":"POST","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"2153.542ms"}[39m
+[32m[28-0324-2025 15:24:45:2445] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"0.802ms"}[39m
+[32m[28-0324-2025 15:24:45:2445] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.946ms"}[39m
+[32m[28-0324-2025 15:24:45:2445] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"1.035ms"}[39m
+[32m[28-0324-2025 15:24:45:2445] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.590ms"}[39m
+[32m[28-0324-2025 15:24:46:2446] info: 	{"method":"GET","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"404","responseTime":"561.296ms"}[39m
+[32m[28-0324-2025 15:24:46:2446] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"816.627ms"}[39m
+[32m[28-0324-2025 15:24:47:2447] info: 	{"method":"GET","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"404","responseTime":"1831.861ms"}[39m
+[32m[28-0324-2025 15:24:47:2447] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"2094.487ms"}[39m
+[32m[28-0326-2025 15:26:52:2652] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"0.404ms"}[39m
+[32m[28-0326-2025 15:26:52:2652] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.369ms"}[39m
+[32m[28-0326-2025 15:26:52:2652] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.605ms"}[39m
+[32m[28-0326-2025 15:26:52:2652] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"0.305ms"}[39m
+[32m[28-0326-2025 15:26:52:2652] info: 	{"method":"GET","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"404","responseTime":"508.054ms"}[39m
+[32m[28-0326-2025 15:26:52:2652] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"810.502ms"}[39m
+[32m[28-0326-2025 15:26:54:2654] info: 	{"method":"GET","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"404","responseTime":"1880.177ms"}[39m
+[32m[28-0326-2025 15:26:54:2654] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"2129.748ms"}[39m
+[32m[28-0330-2025 15:30:03:303] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0330-2025 15:30:04:304] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0330-2025 15:30:05:305] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"4.740ms"}[39m
+[32m[28-0330-2025 15:30:05:305] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.469ms"}[39m
+[32m[28-0330-2025 15:30:05:305] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"0.704ms"}[39m
+[32m[28-0330-2025 15:30:05:305] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.452ms"}[39m
+[32m[28-0330-2025 15:30:05:305] info: 	Successful index building at user model[39m
+[32m[28-0330-2025 15:30:07:307] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1461.179ms"}[39m
+[32m[28-0330-2025 15:30:07:307] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1641.103ms"}[39m
+[32m[28-0331-2025 15:31:49:3149] info: 	{"method":"GET","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"-","responseTime":"-ms"}[39m
+[32m[28-0331-2025 15:31:49:3149] info: 	transport close[39m
+[32m[28-0331-2025 15:31:49:3149] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0331-2025 15:31:49:3149] info: 	transport error[39m
+[32m[28-0331-2025 15:31:49:3149] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0331-2025 15:31:49:3149] info: 	{"method":"GET","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"-","responseTime":"-ms"}[39m
+[32m[28-0331-2025 15:31:51:3151] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"0.630ms"}[39m
+[32m[28-0331-2025 15:31:51:3151] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.562ms"}[39m
+[32m[28-0331-2025 15:31:51:3151] info: 	{"method":"OPTIONS","url":"/api/v1/activities/67e6950d9f5bea735f80f58c/summary","status":"200","responseTime":"0.433ms"}[39m
+[32m[28-0331-2025 15:31:51:3151] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.507ms"}[39m
+[32m[28-0331-2025 15:31:52:3152] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"821.710ms"}[39m
+[32m[28-0331-2025 15:31:52:3152] info: 	{"method":"GET","url":"/api/v1/challenges/analytics/67e6950d9f5bea735f80f58c","status":"200","responseTime":"818.266ms"}[39m
+[32m[28-0332-2025 15:32:08:328] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1.465ms"}[39m
+[32m[28-0332-2025 15:32:09:329] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.837ms"}[39m
+[32m[28-0332-2025 15:32:09:329] info: 	{"method":"GET","url":"/api/v1/challenges/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"954.091ms"}[39m
+[32m[28-0332-2025 15:32:09:329] info: 	{"method":"GET","url":"/api/v1/challenges/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"955.563ms"}[39m
+[32m[28-0332-2025 15:32:19:3219] info: 	{"method":"OPTIONS","url":"/api/v1/activities/progress/user/67e6950d9f5bea735f80f58c?year=2025&month=3","status":"200","responseTime":"0.692ms"}[39m
+[32m[28-0332-2025 15:32:19:3219] info: 	{"method":"OPTIONS","url":"/api/v1/activities/progress/user/67e6950d9f5bea735f80f58c?year=2025&month=3","status":"200","responseTime":"0.631ms"}[39m
+[32m[28-0332-2025 15:32:19:3219] info: 	{"method":"GET","url":"/api/v1/activities/progress/user/67e6950d9f5bea735f80f58c?year=2025&month=3","status":"200","responseTime":"534.366ms"}[39m
+[32m[28-0332-2025 15:32:19:3219] info: 	{"method":"GET","url":"/api/v1/activities/progress/user/67e6950d9f5bea735f80f58c?year=2025&month=3","status":"200","responseTime":"554.991ms"}[39m
+[32m[28-0332-2025 15:32:26:3226] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.702ms"}[39m
+[32m[28-0332-2025 15:32:26:3226] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1.614ms"}[39m
+[32m[28-0332-2025 15:32:27:3227] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"404","responseTime":"639.174ms"}[39m
+[32m[28-0332-2025 15:32:27:3227] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"404","responseTime":"626.539ms"}[39m
+[32m[28-0333-2025 15:33:25:3325] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0333-2025 15:33:25:3325] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0333-2025 15:33:28:3328] info: 	Successful index building at user model[39m
+[32m[28-0333-2025 15:33:33:3333] info: 	transport close[39m
+[32m[28-0333-2025 15:33:33:3333] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0333-2025 15:33:33:3333] info: 	transport close[39m
+[32m[28-0333-2025 15:33:33:3333] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0333-2025 15:33:35:3335] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"42.269ms"}[39m
+[32m[28-0333-2025 15:33:35:3335] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.402ms"}[39m
+[32m[28-0334-2025 15:34:35:3435] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.480ms"}[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	transport close[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	transport error[39m
+[32m[28-0334-2025 15:34:40:3440] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0334-2025 15:34:42:3442] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.387ms"}[39m
+[32m[28-0334-2025 15:34:42:3442] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.387ms"}[39m
+[32m[28-0334-2025 15:34:51:3451] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.598ms"}[39m
+[32m[28-0334-2025 15:34:54:3454] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.460ms"}[39m
+[32m[28-0335-2025 15:35:26:3526] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.533ms"}[39m
+[32m[28-0335-2025 15:35:26:3526] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.368ms"}[39m
+[32m[28-0335-2025 15:35:40:3540] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.449ms"}[39m
+[32m[28-0335-2025 15:35:40:3540] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.380ms"}[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	transport close[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	transport close[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0335-2025 15:35:43:3543] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0335-2025 15:35:44:3544] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.323ms"}[39m
+[32m[28-0335-2025 15:35:44:3544] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.359ms"}[39m
+[32m[28-0336-2025 15:36:40:3640] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.224ms"}[39m
+[32m[28-0336-2025 15:36:40:3640] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.600ms"}[39m
+[32m[28-0336-2025 15:36:51:3651] info: 	ping timeout[39m
+[32m[28-0336-2025 15:36:51:3651] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0336-2025 15:36:59:3659] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.464ms"}[39m
+[32m[28-0337-2025 15:37:04:374] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1.148ms"}[39m
+[32m[28-0337-2025 15:37:36:3736] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.769ms"}[39m
+[32m[28-0337-2025 15:37:39:3739] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.325ms"}[39m
+[32m[28-0337-2025 15:37:39:3739] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.296ms"}[39m
+[32m[28-0337-2025 15:37:45:3745] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.344ms"}[39m
+[32m[28-0337-2025 15:37:45:3745] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.357ms"}[39m
+[32m[28-0338-2025 15:38:06:386] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.821ms"}[39m
+[32m[28-0338-2025 15:38:22:3822] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.299ms"}[39m
+[32m[28-0338-2025 15:38:27:3827] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.399ms"}[39m
+[32m[28-0338-2025 15:38:27:3827] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.496ms"}[39m
+[32m[28-0338-2025 15:38:33:3833] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.198ms"}[39m
+[32m[28-0338-2025 15:38:33:3833] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.184ms"}[39m
+[32m[28-0338-2025 15:38:38:3838] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.710ms"}[39m
+[32m[28-0338-2025 15:38:43:3843] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.389ms"}[39m
+[32m[28-0338-2025 15:38:44:3844] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1.001ms"}[39m
+[32m[28-0338-2025 15:38:49:3849] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1.717ms"}[39m
+[32m[28-0338-2025 15:38:49:3849] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.331ms"}[39m
+[32m[28-0338-2025 15:38:54:3854] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.280ms"}[39m
+[32m[28-0339-2025 15:39:01:391] info: 	transport close[39m
+[32m[28-0339-2025 15:39:01:391] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0339-2025 15:39:01:391] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:01:391] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:01:391] info: 	transport close[39m
+[32m[28-0339-2025 15:39:01:391] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0339-2025 15:39:01:391] info: 	transport error[39m
+[32m[28-0339-2025 15:39:01:391] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0339-2025 15:39:01:391] info: 	transport error[39m
+[32m[28-0339-2025 15:39:01:391] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0339-2025 15:39:01:391] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:01:391] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:01:391] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:01:391] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:03:393] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.336ms"}[39m
+[32m[28-0339-2025 15:39:03:393] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"13.169ms"}[39m
+[32m[28-0339-2025 15:39:08:398] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.802ms"}[39m
+[32m[28-0339-2025 15:39:18:3918] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.303ms"}[39m
+[32m[28-0339-2025 15:39:19:3919] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.499ms"}[39m
+[32m[28-0339-2025 15:39:22:3922] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.565ms"}[39m
+[32m[28-0339-2025 15:39:22:3922] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.340ms"}[39m
+[32m[28-0339-2025 15:39:23:3923] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"1.421ms"}[39m
+[32m[28-0339-2025 15:39:27:3927] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.261ms"}[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	transport close[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	transport error[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:30:3930] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0339-2025 15:39:31:3931] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.313ms"}[39m
+[32m[28-0339-2025 15:39:31:3931] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.283ms"}[39m
+[32m[28-0339-2025 15:39:36:3936] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.403ms"}[39m
+[32m[28-0339-2025 15:39:41:3941] info: 	{"method":"OPTIONS","url":"/api/v1/auth/logout","status":"200","responseTime":"0.328ms"}[39m
+[32m[28-0339-2025 15:39:41:3941] info: 	{"method":"DELETE","url":"/api/v1/auth/logout","status":"200","responseTime":"323.998ms"}[39m
