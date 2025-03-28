@@ -212,7 +212,7 @@ getAllUsers()
               onClick={handleShow}
             />
           </div>
-        <div className="w-full overflow-x-auto bg-slate-200 px-4 py-6 dark:bg-gray-900 border-2 border-gray-800">
+        <div className="w-full overflow-x-auto bg-slate-100 px-4 py-6 dark:bg-gray-900 dark:border-2 border-gray-800">
           <div className="flex justify-end">
             <SearchBar
               placeholder="Search activities"

@@ -81,7 +81,7 @@ const SideBar = ({}) => {
     <motion.nav
       className={
         user &&
-        `mr-0.5 flex flex-col gap-16 border-r-gray-800 bg-slate-200 py-8 dark:border-r-2 dark:bg-gray-900 dark:text-gray-400`
+        `mr-0.5 flex flex-col gap-16 border-r-gray-800 bg-slate-100 text-gray-500  py-8 dark:border-r-2 dark:bg-gray-900 dark:text-gray-400`
       }
       animate={{
         width: isOpen ? 256 : 50,
@@ -89,7 +89,7 @@ const SideBar = ({}) => {
       transition={{ duration: 0.3 }}
       initial={false}
     >
-      <div className="flex justify-between text-gray-700 dark:text-gray-600">
+      <div className="flex justify-between ">
         <div>
           {isOpen && (
             <AnimatePresence>
@@ -114,7 +114,7 @@ const SideBar = ({}) => {
               whileHover={{ scale: 1.1 }}
               whileFocus={{ scale: 1.1 }}
               initial={false}
-              className="mt-10 text-gray-400"
+              className="mt-10 ml-3 text-violet-600 "
               onClick={() => {
                 setIsOpen(true);
                 localStorage.setItem("isOpen", true);
@@ -126,7 +126,7 @@ const SideBar = ({}) => {
             <Button
               title="Close menu"
               icon={PanelLeftClose}
-              className="mt-1 fill-violet-600"
+              className="mt-1 text-violet-600"
               onClick={() => {
                 setIsOpen(false);
 
@@ -142,7 +142,7 @@ const SideBar = ({}) => {
             <NavLink
               key={item.path}
               to={item.path}
-              className="flex gap-4 text-gray-200"
+              className="flex gap-4 "
               title={item.name}
             >
               {item.icon !== "Notify" ? (

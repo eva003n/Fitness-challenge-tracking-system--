@@ -95,7 +95,7 @@ const Reports = () => {
            {
             !isLoading && (
               <Button 
-              name={"Preview report"}
+              name={"Preview"}
               className="bg-violet-600 hover:bg-violet-700"
               onClick={handleShow} />
             )

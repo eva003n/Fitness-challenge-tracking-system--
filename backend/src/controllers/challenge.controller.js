@@ -577,11 +577,11 @@ const deleteChallenge = asyncHandler(async (req, res, next) => {
     return next(ApiError.notFound(404, "Challange doesn't exists"));
 
   //first check if the person requesting the challenge deletion is the creator of the challenge
-  if (String(isExistingChallenge.createdBy) !== String(req.user._id))
+  if (String(isExistingChallenge.createdBy) !== String(req.user._id) || req.user.role !== "admin")
     return next(
       ApiError.unAuthorizedRequest(
         401,
-        "You are not authorized to delete this challenge"
+        "Cannot delete this challenge"
       )
     );
 

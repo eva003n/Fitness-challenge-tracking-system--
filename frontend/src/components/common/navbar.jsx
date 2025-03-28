@@ -57,13 +57,13 @@ const Navbar = ({ ...props }) => {
 
       {
           <Button name={
-            <Link
+            <NavLink
             to={"/login"}
-            className="rounded-md bg-violet-600 px-4 py-1.5 tracking-wider text-white"
+            className="nav-top text-gray-800 dark:text-white rounded-md md:bg-violet-600 px-4 py-1.5 tracking-wider "
             onClick={() => handleClick()}
           >
             Log in
-          </Link>
+          </NavLink>
            }>
             
           </Button>

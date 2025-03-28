@@ -94,7 +94,7 @@ const SignUpPage = () => {
             name={isLogIn ? " Log in " : " Sign up"}
             disabled={Object.values(data).some((value) => !value)}
           ></Button>
-          <p className="text-center text-gray-300">Or continue with </p>
+          <p className="text-center text-gray-800 dark:text-gray-300">Or continue with </p>
           <Button
             onClick={(e) => handleSignUpWithGithub(e)}
             className="mt-3 bg-violet-600 disabled:bg-violet-700"

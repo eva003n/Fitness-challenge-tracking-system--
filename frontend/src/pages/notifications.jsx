@@ -60,7 +60,7 @@ const Notifications = () => {
   }, [notifications]);
   return (
     <Container>
-      <div className="mx-auto grid max-w-[48rem] items-start gap-4 rounded-md bg-gray-800/10 px-1 outline-1 outline-gray-700">
+      <div className="mx-auto grid max-w-[48rem] items-start gap-4 rounded-md dark:bg-gray-800/10 px-1 dark:outline-1 outline-gray-700">
         <div className="p-4">
           <p className="sm:text-1xl text-[1.3rem] font-medium text-gray-400">
             Notifications
@@ -84,7 +84,7 @@ const Notifications = () => {
           {notification &&
             notification.map((notification) => (
               <ListItem
-                className="flex items-center gap-4 rounded-2xl bg-white p-4 outline-1 outline-gray-700 transition-all duration-300 dark:bg-gray-900 hover:dark:bg-gray-800"
+                className="flex items-center gap-4 rounded-2xl bg-slate-100 p-4 dark:outline-1 outline-gray-700 transition-all duration-300 dark:bg-gray-900 hover:dark:bg-gray-800"
                 key={notification._id}
               >
                 <div className="flex items-center gap-2">

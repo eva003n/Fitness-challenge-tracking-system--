@@ -7,7 +7,7 @@ const StatsCard = ({ icon: Icon, title, color, ...props }) => {
     animate={{y: 0, opacity: 1}}
     transition={{duration: 0.5}}
     className="grow">
-     <div className="flex items-center justify-between gap-4 rounded-lg bg-slate-200  p-4 dark:bg-gray-800/50 dark:text-gray-300">
+     <div className="flex items-center justify-between gap-4 rounded-lg bg-slate-100  p-4 dark:bg-gray-800/50 dark:text-gray-300">
     {Icon && <Icon size={24}  className={color} color={color} />}
     <div 
     className="grow">

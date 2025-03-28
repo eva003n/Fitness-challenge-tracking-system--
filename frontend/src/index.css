@@ -38,19 +38,6 @@ img {
   position: relative;
   transition: all 1s ease-in;
 }
-.nav-top .active::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  right: 0;
-  height: 2px;
-  bottom: -20px;
-  background-color: #7616e3;
-  transition: all 0.3s ease-in;
-}
-
-
-
 
 .hidden-input {
   position: absolute;
@@ -62,7 +49,3 @@ img {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
-/* .active:hover::after {
-    width: 0%;
-  } */

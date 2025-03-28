@@ -1,12 +1,13 @@
+import { useEffect } from "react";
 import Loader from "../components/common/Loader";
 
 import { useAuth } from "../context/authProvider";
 
 const Redirect = () => {
-
   const { redirect } = useAuth();
-
+useEffect(() => {
   redirect();
+},[])
 
   return (
     <div className="grid h-screen bg-slate-50 dark:bg-gray-900 items-center">
