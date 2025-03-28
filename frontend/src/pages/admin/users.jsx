@@ -347,7 +347,7 @@ getAllUsers()
                   value={data.password}
                   className="px-2"
                   onChange={handleChange}
-                  required
+                  // required
                 />
       
       

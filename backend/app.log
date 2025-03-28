@@ -92,3 +92,12 @@
 [32m[28-0359-2025 18:59:46:5946] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.627ms"}[39m
 [32m[28-0359-2025 18:59:46:5946] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"304","responseTime":"528.237ms"}[39m
 [32m[28-0359-2025 18:59:46:5946] info: 	{"method":"PUT","url":"/api/v1/notifications/67deb7799623a3b65f4eaeae","status":"200","responseTime":"774.956ms"}[39m
+[32m[28-0359-2025 18:59:49:5949] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"502.865ms"}[39m
+[32m[28-0359-2025 18:59:52:5952] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/67deb7789623a3b65f4eaea8","status":"200","responseTime":"0.681ms"}[39m
+[32m[28-0359-2025 18:59:52:5952] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.716ms"}[39m
+[32m[28-0359-2025 18:59:52:5952] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"304","responseTime":"542.160ms"}[39m
+[32m[28-0359-2025 18:59:52:5952] info: 	{"method":"PUT","url":"/api/v1/notifications/67deb7789623a3b65f4eaea8","status":"200","responseTime":"768.753ms"}[39m
+[32m[28-0359-2025 18:59:57:5957] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"510.570ms"}[39m
+[31m[28-035-2025 19:05:08:58] error: 	read ECONNRESET[39m
+[31m[28-035-2025 19:05:08:58] error: 	Mongoose disconnected from Mongodb server[39m
+[32m[28-035-2025 19:05:19:519] info: 	Mongoose reconnected to MongoDB server successfully[39m
