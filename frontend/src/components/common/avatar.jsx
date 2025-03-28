@@ -9,7 +9,7 @@ const Avatar = ({ width = 2,  ...props }) => {
 
   return (
     <div className="relative w-min">
-      <div className={`w-2 aspect-square rounded-full  absolute -top-0 right-0 ${isConnected ? "bg-green-400" : "bg-rose-400"}`}></div>
+      {/* <div className={`w-2 aspect-square rounded-full  absolute -top-0 right-0 ${isConnected ? "bg-green-400" : "bg-rose-400"}`}></div> */}
       <div
        className={`aspect-square w-8 overflow-hidden bg-gray-600 rounded-full`}
         style={{width: `${width}rem`}}
