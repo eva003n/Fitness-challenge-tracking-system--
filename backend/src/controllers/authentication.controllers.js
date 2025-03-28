@@ -43,7 +43,7 @@ const signUp = asyncHandler(async (req, res, next) => {
   const newUser = await User.create({
     email,
     password,
-    username: `@${email.split("@")[0]}`,
+    userName: `@${email.split("@")[0]}`,
   });
 
   //if transaction succeeds

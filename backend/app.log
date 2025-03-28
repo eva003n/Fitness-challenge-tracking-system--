@@ -101,3 +101,21 @@
 [31m[28-035-2025 19:05:08:58] error: 	read ECONNRESET[39m
 [31m[28-035-2025 19:05:08:58] error: 	Mongoose disconnected from Mongodb server[39m
 [32m[28-035-2025 19:05:19:519] info: 	Mongoose reconnected to MongoDB server successfully[39m
+[32m[28-0316-2025 19:16:18:1618] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0316-2025 19:16:18:1618] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0316-2025 19:16:19:1619] info: 	Successful index building at user model[39m
+[31m[28-0316-2025 19:16:51:1651] error: 	Mongoose disconnected from Mongodb server[39m
+[32m[28-0316-2025 19:16:58:1658] info: 	Mongoose reconnected to MongoDB server successfully[39m
+[31m[28-0317-2025 19:17:47:1747] error: 	read ECONNRESET[39m
+[32m[28-0318-2025 19:18:10:1810] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0318-2025 19:18:10:1810] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0318-2025 19:18:11:1811] info: 	Successful index building at user model[39m
+[32m[28-0318-2025 19:18:50:1850] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0318-2025 19:18:50:1850] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0318-2025 19:18:51:1851] info: 	Successful index building at user model[39m
+[31m[28-0329-2025 19:29:57:2957] error: 	Mongoose disconnected from Mongodb server[39m
+[31m[28-0329-2025 19:29:57:2957] error: 	read ECONNRESET[39m
+[32m[28-0334-2025 19:34:59:3459] info: 	Mongoose reconnected to MongoDB server successfully[39m
+[32m[28-0338-2025 19:38:25:3825] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0338-2025 19:38:25:3825] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0338-2025 19:38:26:3826] info: 	Successful index building at user model[39m
