@@ -36,7 +36,8 @@ const markAsRead = asyncHandler(async (req, res, next) => {
   const notification = await Notification.findById(id );
   if(!notification) return next(ApiError.notFound(404, "Notification not found"))
   //if notification is already marked as read exit otherwise continue
-  if(notification.seen) return next(ApiError.badRequest(400, "Notification already marked as read"))
+  if(notification.seen) return
+  //  next(ApiError.badRequest(400, "Notification already marked as read"))
 
   // update
   notification.seen = true

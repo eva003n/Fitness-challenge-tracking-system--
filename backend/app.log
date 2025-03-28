@@ -157,3 +157,34 @@
 [32m[28-0339-2025 15:39:36:3936] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"200","responseTime":"0.403ms"}[39m
 [32m[28-0339-2025 15:39:41:3941] info: 	{"method":"OPTIONS","url":"/api/v1/auth/logout","status":"200","responseTime":"0.328ms"}[39m
 [32m[28-0339-2025 15:39:41:3941] info: 	{"method":"DELETE","url":"/api/v1/auth/logout","status":"200","responseTime":"323.998ms"}[39m
+[32m[28-0341-2025 15:41:03:413] info: 	transport close[39m
+[32m[28-0341-2025 15:41:03:413] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0341-2025 15:41:03:413] info: 	transport close[39m
+[32m[28-0341-2025 15:41:03:413] info: 	user 67e6950d9f5bea735f80f58c disconnected[39m
+[32m[28-0341-2025 15:41:03:413] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0341-2025 15:41:03:413] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0341-2025 15:41:03:413] info: 	{"method":"GET","url":"/api/v1/notifications/user/67e6950d9f5bea735f80f58c","status":"-","responseTime":"-ms"}[39m
+[32m[28-0341-2025 15:41:10:4110] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"0.335ms"}[39m
+[32m[28-0341-2025 15:41:10:4110] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"0.351ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"POST","url":"/api/v1/auth/github/oauth","status":"500","responseTime":"1583.381ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"POST","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"1729.423ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"1.045ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.381ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.525ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.887ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.318ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.440ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.283ms"}[39m
+[32m[28-0341-2025 15:41:12:4112] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.359ms"}[39m
+[32m[28-0341-2025 15:41:13:4113] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"563.297ms"}[39m
+[32m[28-0341-2025 15:41:13:4113] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"593.041ms"}[39m
+[32m[28-0341-2025 15:41:13:4113] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"580.289ms"}[39m
+[32m[28-0341-2025 15:41:13:4113] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"619.708ms"}[39m
+[32m[28-0341-2025 15:41:14:4114] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"542.149ms"}[39m
+[32m[28-0341-2025 15:41:14:4114] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"545.134ms"}[39m
+[32m[28-0341-2025 15:41:14:4114] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"1959.926ms"}[39m
+[32m[28-0341-2025 15:41:14:4114] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"1973.112ms"}[39m
+[32m[28-0342-2025 15:42:58:4258] info: 	{"method":"OPTIONS","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"1.007ms"}[39m
+[32m[28-0342-2025 15:42:58:4258] info: 	{"method":"OPTIONS","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"0.832ms"}[39m
+[32m[28-0342-2025 15:42:59:4259] info: 	{"method":"GET","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"522.243ms"}[39m
+[32m[28-0342-2025 15:42:59:4259] info: 	{"method":"GET","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"525.627ms"}[39m
