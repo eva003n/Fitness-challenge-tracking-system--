@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
 //create and configure axios instance
+console.log(import.meta.env.VITE_API_BASE_URI)
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URI,
   withCredentials: true,
@@ -264,8 +265,7 @@ const getAuthorizationCode = async () => {
     const authorizationCode = new URLSearchParams(window.location.search).get(
       "code"
     );
-    console.log(authorizationCode);
-    //send to backend api
+    //send authorization code to backend api
     const response = await apiClient.post("/auth/github/oauth", {
       authorizationCode,
     });

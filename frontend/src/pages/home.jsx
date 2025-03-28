@@ -8,7 +8,7 @@ const Home = () => {
   const { logInState } = useAuth();
   return (
     <section>
-      <div className='relative isolate flex h-screen flex-col items-center justify-start gap-4 bg-[url("/images/her0-1.png")] bg-right'>
+      <div className='relative isolate flex min-h-svh flex-col items-center justify-start gap-4 bg-[url("/images/her0-1.png")] bg-right'>
         <div className="-z-1 absolute left-0 top-0 h-full w-full bg-black/50"></div>
         <div className="mt-20 grid max-w-[36rem] gap-4 text-center">
           <h1 className="text-5xl font-semibold leading-normal tracking-wider text-slate-50">

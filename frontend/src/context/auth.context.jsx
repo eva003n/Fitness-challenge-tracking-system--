@@ -106,10 +106,10 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
       const sendToken = async () => {
         try {
-          console.log("token", token);
+          console.log("hello")
           const response = await getAuthorizationCode();
 
-          if (response && response.success) {
+          if (response.success) {
             const { data } = response;
 
             setUser(data.user);
@@ -120,21 +120,21 @@ const AuthProvider = ({ children }) => {
 
             //redirect to dashboard
             navigate("/dashboard");
-
             return toast.info(data.message || "Logged in successfully");
+          }else {
+            navigate("/login")
           }
-        } catch (error) {
-          if (error.code === "ERR_NETWORK")
-            toast.error(`${error.message}, try again`);
-        }
+        } catch (e) {
+        console.log(e.message)
       };
-      sendToken();
-    }, []);
+    }
+    sendToken();
+    }, [])
   };
 
   useEffect(() => {
     try {
-      //isLogin from localstorage will be a string "true" or "false" thus we need to convert it to parse it to boolean to get the correct value
+      //isLogin from localstorage will be a string "true" or "false" thus we need to convert it to parse it to boolean to get the correct 'value
       // let _isLogIn = JSON.parse(localStorage.getItem("isLogIn"));
       const _user = JSON.parse(localStorage.getItem("user"));
       const _isOpen = JSON.parse(localStorage.getItem("isOpen"));
@@ -146,7 +146,7 @@ const AuthProvider = ({ children }) => {
       if (_isLogIn) setIsLogIn(_isLogIn);
       if (_isOpen) setIsOpen(_isOpen);
     } catch (e) {
-      toast.error(e.message);
+      console.log(e.message);
     }
   }, []);
 
@@ -167,7 +167,7 @@ const AuthProvider = ({ children }) => {
       }}
     >
       {isLoading ? (
-        <Loader className="flex h-screen w-full flex-col items-center justify-center gap-4 bg-gray-900" />
+        <Loader className="flex h-screen w-full flex-col items-center justify-center gap-4 dark:bg-gray-900 bg-slate-50" />
       ) : (
         children
       )}

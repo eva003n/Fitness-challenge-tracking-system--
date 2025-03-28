@@ -21,7 +21,7 @@ const {user, token} = useAuth();
   };
   
   return (
-    <header className="flex  items-center justify-between bg-slate-200 px-4  md:gap-4 dark:bg-gray-900 dark:border-b-2 border-b-gray-800  h-min py-2 dark:text-white">
+    <header className="flex  items-center justify-between bg-slate-100 px-4  md:gap-4 dark:bg-gray-900 dark:border-b-2 border-b-gray-800  h-min py-2 dark:text-white">
       <section className="flex gap-3 mr-auto sm:mr-0">
         <Logo />
       </section>

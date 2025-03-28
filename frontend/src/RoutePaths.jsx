@@ -26,6 +26,7 @@ import Edit from "./pages/admin/challenges/edit.jsx";
 import ChallengesPage from "./pages/admin/challenges/challengeHome.jsx";
 import Users from "./pages/admin/users.jsx";
 import Explore from "./pages/challenges/explore.jsx";
+import NotFound from "./pages/404.jsx";
 
 const RoutePaths = () => {
   // const [isLoading, setIsLoading] = useState(true);
@@ -81,7 +82,7 @@ const RoutePaths = () => {
       {/* Not found routes */}
       <Route
         path="*"
-        element={<h1 className="text-white">404 Page Not found</h1>}
+        element={<NotFound/>}
       />
     </Routes>
   );

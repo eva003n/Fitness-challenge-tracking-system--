@@ -119,13 +119,13 @@ const logIn = asyncHandler(
         maxAge: 15 * 60 * 1000, //15min
         secure: process.env.NODE_ENV === "production",
         // sameSite: "strict", //CSRF cross site resource forgery attack
-        sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       })
       .cookie("RefreshToken", refreshToken, {
         httpOnly: true, //prevent xss attacks,cookie being accessed via js
         secure: process.env.NODE_ENV === "production", //work only with https in production
-        sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
-        maxAge: 24 * 60 * 60 * 1000, //1day
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+        maxAge: 7 * 24 * 60 * 60 * 1000, //7day
       })
       .json(
         new ApiResponse(
@@ -138,16 +138,17 @@ const logIn = asyncHandler(
 );
 
 const thirdPartySignIn = asyncHandler(async (req, res, next) => {
-  //Authrization code sent by identity provider Authorization server
-
+  //Authrization code sent by identity provider Authorization server on the frontend
   const { authorizationCode } = req.body;
 
   if (!authorizationCode) {
     return next(ApiError.badRequest(400, "Authorization code is required"));
   }
+
   axios.defaults.headers.accept = "application/json";
+  //send authorization code to authrization server to receive an access token that will use to fetch users data
   const resp = await axios.post(
-    "https://github.com/login/oauth/access_token",
+    process.env.GITHUB_ACCESS_TOKEN_URL,
     {
       headers: {
         "Content-type": "application/json",
@@ -163,65 +164,64 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
       },
     }
   );
-  // access_Token = access_Token.split('&')[0].split('=')[1];
+
 
   const { access_token } = resp.data;
-
-  //get user details
+  if(!access_token) return
+  //get userg details
   const response = await axios.get(process.env.GITHUB_USER_URI, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
   const { data } = response;
+  if(!data) return
+
+
   const isExistingUser = await User.findOne({ email: data.email });
-  if (isExistingUser)
-    return next(
-      ApiError.conflictRequest(
-        409,
-        "Account already exists, login to your account"
-      )
-    );
 
-  const newUser = await User.create({
-    userName: data.login,
-    name: data.name,
-    email: data.email,
-    avatar: data.avatar_url,
-  });
+  //if its not an existing account create one
+  let newUser = "";
+  if (!isExistingUser) {
+    newUser = await User.create({
+      userName: data.login,
+      name: data.name,
+      email: data.email,
+      avatar: {
+        imageUrl:data.avatar_url
+      },
+    });
+  }
 
-  if (!newUser)
-    return next(
-      ApiError.internalServerError(500, "Failed to create account, try again")
-    );
-
-  //generate token for user session
+  //generate token for user whether its a new user or existing
   const { accessToken, refreshToken } = generateToken(
-    newUser._id,
-    newUser.email,
-    newUser.role
+    (newUser && newUser._id) || isExistingUser._id,
+    (newUser && newUser.email) || isExistingUser.email,
+    (newUser && newUser.role) || isExistingUser.role
   );
 
   return res
     .status(200)
     .cookie("AccessToken", accessToken, {
       httpOnly: true, //prevent xss attacks
-      maxAge: 15 * 60 * 1000, //15min
       secure: process.env.NODE_ENV === "production",
       // sameSite: "strict", //CSRF cross site resource forgery attack
-         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 15 * 60 * 1000, //15min
+
     })
     .cookie("RefreshToken", refreshToken, {
       httpOnly: true, //prevent xss attacks,cookie being accessed via js
       secure: process.env.NODE_ENV === "production", //work only with https in production
       // sameSite: "strict",
-         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
-      maxAge: 24 * 60 * 60 * 1000, //1day
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000, //7day
+
     })
     .json(
       new ApiResponse(
         200,
-        { user: newUser, accessToken },
+        { user: newUser || isExistingUser, accessToken },
         "Logged in successfully"
       )
     );
@@ -303,13 +303,13 @@ const tokenRefresh = asyncHandler(async (req, res, next) => {
       maxAge: 15 * 60 * 1000, //15min
       secure: process.env.NODE_ENV === "production",
       // sameSite: "strict", //CSRF cross site resource forgery attack
-         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     })
     .cookie("RefreshToken", refreshToken, {
       httpOnly: true, //prevent xss attacks,cookie being accessed via js
       secure: process.env.NODE_ENV === "production", //work only with https in production
       // sameSite: "strict",
-         sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 24 * 60 * 60 * 1000, //1day
     })
     .json(
@@ -361,13 +361,13 @@ const configureCookie = (res, accessToken, refreshToken) => {
     maxAge: 15 * 60 * 1000, //15min
     secure: process.env.NODE_ENV === "production",
     // sameSite: "strict", //CSRF cross site resource forgery attack
-       sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
   });
   res.cookie("RefreshToken", refreshToken, {
     httpOnly: true, //prevent xss attacks,cookie being accessed via js
     secure: process.env.NODE_ENV === "production", //work only with https in production
     // sameSite: "strict",
-       sameSite: process.env.NODE_ENV === "production" ?"none": "strict",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     maxAge: 24 * 60 * 60 * 1000, //1day
   });
 };

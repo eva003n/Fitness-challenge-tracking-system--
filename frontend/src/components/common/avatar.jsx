@@ -19,7 +19,7 @@ const Avatar = ({ width = 2,  ...props }) => {
          user && (
           <img
       
-          src={ user.avatar.imageUrl}
+          src={ user && user.avatar && user.avatar.imageUrl}
           className={`h-full w-full transition duration-300 ${props.className || ""}`}
           // alt={"user profile"}
         />

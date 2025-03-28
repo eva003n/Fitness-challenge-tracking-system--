@@ -21,7 +21,6 @@ const __dirname = path.dirname(__fileName)
 // })
 
 
-
 const app = express();
 //create a new http server and pass express app
 const httpServer = createServer(app)

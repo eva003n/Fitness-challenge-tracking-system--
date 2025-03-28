@@ -711,7 +711,6 @@ const challengeProgress = asyncHandler(async (req, res, next) => {
 });
 
 const userAnalytics = asyncHandler(async (req, res, next) => {
-  console.log("hello")
   const { user_id } = req.params;
   //Validate params
   const { error } = paramsSchema.validate({ user_id });
