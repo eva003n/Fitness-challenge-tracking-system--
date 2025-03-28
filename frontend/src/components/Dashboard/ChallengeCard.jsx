@@ -23,7 +23,7 @@ const CHALLENGE_DATA = [
 const ChallengeCard = ({ analytics, isLoading }) => {
   return (
     <List
-      className={`flex h-full max-w-[30rem] flex-col gap-4 bg-gray-800/50 p-4 text-gray-600 dark:text-gray-200`}
+      className={`flex h-full max-w-[30rem] flex-col gap-4 dark:bg-gray-800/50 p-4 text-gray-600 dark:text-gray-200`}
     >
       <motion.div
         initial={{ y: 20, opacity: 0 }}
@@ -52,7 +52,7 @@ const ChallengeCard = ({ analytics, isLoading }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             key={challenge._id}
-            className="rounded-lg bg-slate-200 p-4 dark:bg-gray-900"
+            className="rounded-lg bg-slate-100 p-4 dark:bg-gray-900"
           >
             <div className="flex justify-between">
               <p className="text-gray-400">{challenge.name}</p>
