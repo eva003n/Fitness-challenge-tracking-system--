@@ -188,3 +188,6 @@
 [32m[28-0342-2025 15:42:58:4258] info: 	{"method":"OPTIONS","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"0.832ms"}[39m
 [32m[28-0342-2025 15:42:59:4259] info: 	{"method":"GET","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"522.243ms"}[39m
 [32m[28-0342-2025 15:42:59:4259] info: 	{"method":"GET","url":"/api/v1/users?page=1&limit=10","status":"200","responseTime":"525.627ms"}[39m
+[32m[28-0346-2025 15:46:47:4647] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[28-0346-2025 15:46:47:4647] info: 	Server listening on http://localhost:8080...[39m
+[32m[28-0346-2025 15:46:49:4649] info: 	Successful index building at user model[39m

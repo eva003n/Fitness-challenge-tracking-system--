@@ -94,7 +94,7 @@ const Explore = () => {
           challenges.map((challenge) => {
             return (
               <ListItem
-                className="rounded-lg border-[.5px] border-gray-700 bg-slate-100 px-4 py-4 dark:bg-gray-800/10"
+                className="rounded-lg dark:border-[.5px] border-gray-700 bg-slate-100 px-4 py-4 dark:bg-gray-800/10"
                 key={challenge._id}
               >
                 <div className="grid gap-4">
