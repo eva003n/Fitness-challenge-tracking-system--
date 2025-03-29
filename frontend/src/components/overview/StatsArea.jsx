@@ -27,25 +27,25 @@ const StatsArea = () => {
         title={"Total Users"}
         count={userStats && userStats.totalUsers || 0}
         icon={ Users}
-        color={"fill-green-600"}
+        color={"text-green-600"}
       />
       <StatsCard
         title={"New Users"}
         count={userStats && userStats.newUsers || 0}
         icon={ UserPlus}
-        color={"fill-blue-600"}
+        color={"text-blue-600"}
       />
       <StatsCard
         title={"Total challenges"}
         count={challengeStats && challengeStats.totalChallenges || 0}
         icon={Activity}
-        color={"fill-yellow-600"}
+        color={"text-yellow-600"}
       />
       <StatsCard
         title={"Active challenges"}
         count={challengeStats && challengeStats.activeChallenges || 0}
         icon={Activity}
-        color={"fill-rose-600"}
+        color={"text-rose-600"}
       />
     </div>
   );

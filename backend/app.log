@@ -1117,3 +1117,94 @@
 [32m[29-0356-2025 12:56:16:5616] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"517.778ms"}[39m
 [32m[29-0356-2025 12:56:20:5620] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.274ms"}[39m
 [32m[29-0356-2025 12:56:21:5621] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"485.925ms"}[39m
+[32m[29-0358-2025 12:58:11:5811] info: 	Mongoose successfully connected to Mongodb server[39m
+[32m[29-0358-2025 12:58:11:5811] info: 	Server listening on http://localhost:8080...[39m
+[32m[29-0358-2025 12:58:12:5812] info: 	Successful index building at user model[39m
+[32m[29-0359-2025 12:59:01:591] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/user/67bd250f374795ded727c2f9","status":"200","responseTime":"1.144ms"}[39m
+[32m[29-0359-2025 12:59:01:591] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.148ms"}[39m
+[32m[29-0359-2025 12:59:02:592] info: 	{"method":"GET","url":"/api/v1/challenges/user/67bd250f374795ded727c2f9","status":"200","responseTime":"759.809ms"}[39m
+[32m[29-0359-2025 12:59:02:592] info: 	{"method":"GET","url":"/api/v1/challenges/user/67bd250f374795ded727c2f9","status":"200","responseTime":"758.928ms"}[39m
+[32m[29-0359-2025 12:59:13:5913] info: 	{"method":"OPTIONS","url":"/api/v1/users/67bd250f374795ded727c2f9/streaks","status":"200","responseTime":"0.372ms"}[39m
+[32m[29-0359-2025 12:59:14:5914] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/challenge/67e410d4af43ca110f709720/progress","status":"200","responseTime":"0.178ms"}[39m
+[32m[29-0359-2025 12:59:14:5914] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/challenge/67e410d4af43ca110f709720/progress","status":"200","responseTime":"0.177ms"}[39m
+[32m[29-0359-2025 12:59:15:5915] info: 	{"method":"PUT","url":"/api/v1/users/67bd250f374795ded727c2f9/streaks","status":"201","responseTime":"1035.859ms"}[39m
+[32m[29-0359-2025 12:59:24:5924] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.466ms"}[39m
+[32m[29-0359-2025 12:59:24:5924] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.251ms"}[39m
+[32m[29-0359-2025 12:59:24:5924] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"497.689ms"}[39m
+[32m[29-0359-2025 12:59:24:5924] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"511.128ms"}[39m
+[32m[29-0359-2025 12:59:26:5926] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/67e1366432ffa0215b609e20","status":"200","responseTime":"0.299ms"}[39m
+[32m[29-0359-2025 12:59:26:5926] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.497ms"}[39m
+[32m[29-0359-2025 12:59:27:5927] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"497.689ms"}[39m
+[32m[29-0359-2025 12:59:31:5931] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.254ms"}[39m
+[32m[29-0359-2025 12:59:32:5932] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"473.046ms"}[39m
+[32m[29-0359-2025 12:59:42:5942] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/67e7c47281fec32fec54341a","status":"200","responseTime":"0.307ms"}[39m
+[32m[29-0359-2025 12:59:42:5942] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.587ms"}[39m
+[32m[29-0359-2025 12:59:42:5942] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"524.727ms"}[39m
+[32m[29-0359-2025 12:59:42:5942] info: 	{"method":"PUT","url":"/api/v1/notifications/67e7c47281fec32fec54341a","status":"200","responseTime":"744.756ms"}[39m
+[32m[29-0359-2025 12:59:47:5947] info: 	{"method":"OPTIONS","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"0.821ms"}[39m
+[32m[29-0359-2025 12:59:47:5947] info: 	{"method":"GET","url":"/api/v1/notifications/user/67bd250f374795ded727c2f9","status":"200","responseTime":"469.340ms"}[39m
+[32m[29-031-2025 13:01:21:121] info: 	{"method":"OPTIONS","url":"/api/v1/auth/logout","status":"200","responseTime":"0.236ms"}[39m
+[32m[29-031-2025 13:01:22:122] info: 	{"method":"DELETE","url":"/api/v1/auth/logout","status":"200","responseTime":"272.936ms"}[39m
+[32m[29-031-2025 13:01:33:133] info: 	transport close[39m
+[32m[29-031-2025 13:01:33:133] info: 	user 67bd250f374795ded727c2f9 disconnected[39m
+[32m[29-031-2025 13:01:33:133] info: 	transport error[39m
+[32m[29-031-2025 13:01:33:133] info: 	user 67bd250f374795ded727c2f9 disconnected[39m
+[32m[29-031-2025 13:01:33:133] info: 	{"method":"GET","url":"/api/v1/challenges/challenge/67e410d4af43ca110f709720/progress","status":"-","responseTime":"-ms"}[39m
+[32m[29-031-2025 13:01:33:133] info: 	{"method":"PUT","url":"/api/v1/notifications/67e1366432ffa0215b609e20","status":"-","responseTime":"-ms"}[39m
+[32m[29-031-2025 13:01:33:133] info: 	{"method":"GET","url":"/api/v1/challenges/challenge/67e410d4af43ca110f709720/progress","status":"-","responseTime":"-ms"}[39m
+[32m[29-031-2025 13:01:39:139] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"0.353ms"}[39m
+[32m[29-031-2025 13:01:39:139] info: 	{"method":"OPTIONS","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"12.617ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"POST","url":"/api/v1/auth/github/oauth","status":"200","responseTime":"1771.812ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.122ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.193ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.251ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.223ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.909ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.171ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.517ms"}[39m
+[32m[29-031-2025 13:01:41:141] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.417ms"}[39m
+[32m[29-031-2025 13:01:42:142] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"482.991ms"}[39m
+[32m[29-031-2025 13:01:42:142] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"469.005ms"}[39m
+[32m[29-031-2025 13:01:42:142] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"466.121ms"}[39m
+[32m[29-031-2025 13:01:42:142] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"466.476ms"}[39m
+[32m[29-031-2025 13:01:42:142] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"469.011ms"}[39m
+[32m[29-031-2025 13:01:42:142] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"472.447ms"}[39m
+[32m[29-031-2025 13:01:43:143] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"1703.350ms"}[39m
+[32m[29-031-2025 13:01:43:143] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"1709.145ms"}[39m
+[32m[29-033-2025 13:03:21:321] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.112ms"}[39m
+[32m[29-033-2025 13:03:21:321] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.172ms"}[39m
+[32m[29-033-2025 13:03:22:322] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"482.780ms"}[39m
+[32m[29-033-2025 13:03:22:322] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"486.986ms"}[39m
+[32m[29-033-2025 13:03:27:327] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.200ms"}[39m
+[32m[29-033-2025 13:03:27:327] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.245ms"}[39m
+[32m[29-033-2025 13:03:28:328] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"478.337ms"}[39m
+[32m[29-033-2025 13:03:28:328] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"486.348ms"}[39m
+[32m[29-033-2025 13:03:33:333] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.134ms"}[39m
+[32m[29-033-2025 13:03:33:333] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.100ms"}[39m
+[32m[29-033-2025 13:03:34:334] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"465.071ms"}[39m
+[32m[29-033-2025 13:03:34:334] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"469.221ms"}[39m
+[32m[29-033-2025 13:03:48:348] info: 	{"method":"POST","url":"/api/v1/auth/github/oauth","status":"-","responseTime":"-ms"}[39m
+[32m[29-033-2025 13:03:48:348] info: 	transport close[39m
+[32m[29-033-2025 13:03:48:348] info: 	user 67e7b4dfbeebf67a72c7d79c disconnected[39m
+[32m[29-033-2025 13:03:48:348] info: 	transport error[39m
+[32m[29-033-2025 13:03:48:348] info: 	user 67e7b4dfbeebf67a72c7d79c disconnected[39m
+[32m[29-033-2025 13:03:48:348] info: 	transport error[39m
+[32m[29-033-2025 13:03:48:348] info: 	user 67e7b4dfbeebf67a72c7d79c disconnected[39m
+[32m[29-033-2025 13:03:48:348] info: 	transport error[39m
+[32m[29-033-2025 13:03:48:348] info: 	user 67e7b4dfbeebf67a72c7d79c disconnected[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.154ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.309ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.220ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.238ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"0.299ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"0.252ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"0.153ms"}[39m
+[32m[29-034-2025 13:04:30:430] info: 	{"method":"OPTIONS","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"0.302ms"}[39m
+[32m[29-034-2025 13:04:31:431] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"524.166ms"}[39m
+[32m[29-034-2025 13:04:31:431] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"505.969ms"}[39m
+[32m[29-034-2025 13:04:31:431] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"491.636ms"}[39m
+[32m[29-034-2025 13:04:31:431] info: 	{"method":"GET","url":"/api/v1/users/admin/statistics","status":"200","responseTime":"621.394ms"}[39m
+[32m[29-034-2025 13:04:31:431] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"482.378ms"}[39m
+[32m[29-034-2025 13:04:31:431] info: 	{"method":"GET","url":"/api/v1/challenges/completionrate?page=1&limit=10","status":"200","responseTime":"495.369ms"}[39m
+[32m[29-034-2025 13:04:32:432] info: 	{"method":"GET","url":"/api/v1/challenges/admin/statistics","status":"200","responseTime":"1760.874ms"}[39m
+[32m[29-034-2025 13:04:32:432] info: 	{"method":"GET","url":"/api/v1/challenges/summary/workouts","status":"200","responseTime":"1776.530ms"}[39m
