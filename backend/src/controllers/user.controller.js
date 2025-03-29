@@ -138,15 +138,17 @@ const updateUsersStreak = asyncHandler(async (req, res, next) => {
       `New milestone reached! You are unstoppable, ${user.streaks.current} day streaks gained 🔥🔥`,
       "streaks"
     );
+    // emitSocketEvent(String(user._id), SOCKETEVENTENUM.NOTIFY_EVENT, notification)
   } else {
     user.streaks.current = 0;
     // emitSocketEvent(String(user._id), SOCKETEVENTENUM.UPDATE_USER_STREAK, 0);
 
-    await createNotification(
+   await createNotification(
       user._id,
       `💔😟 Ooops! Your ${user.streaks.current} day streaks just broke`,
       "streaks"
     );
+    // emitSocketEvent(String(user._id), SOCKETEVENTENUM.NOTIFY_EVENT, notification)
   }
 
   //if longest streak is the max btw the two

@@ -47,17 +47,16 @@ const markAsRead = asyncHandler(async (req, res, next) => {
 
 const createNotification = async( userId, message, notifyType) => {
   //prevent duplicate notificaions
-  const notify = await Notification.findOne({ message})
-  //prevent duplicate notificaions
-  if(notify) return
+
 
   const notification = await Notification.create({
     message,
     userId,
     notifyType
   })
+  console.log(notification)
 
-   emitSocketEvent(String(userId), SOCKETEVENTENUM.NOTIFY_EVENT, notification)
+   return emitSocketEvent(String(userId), SOCKETEVENTENUM.NOTIFY_EVENT, notification)
 
 }
 

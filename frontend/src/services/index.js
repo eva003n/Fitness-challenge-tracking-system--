@@ -30,7 +30,10 @@ apiClient.interceptors.response.use(
     console.log(error)
     //In axios errors can occur during the request abd in the resonse(mostly server errors
     if (error.code === "ERR_NETWORK") {
-      toast.error(`${error.message}, try again`);
+      let currentToast = null
+      if(!toast.isActive(currentToast)){
+        currentToast = toast.error(`${error.message}, try again`);
+      }
     }else {
       // toast.error(error.response.data.error || error.message);
     }
@@ -40,7 +43,11 @@ apiClient.interceptors.response.use(
         //reference to original request
         const failedRequest = error.config;
         //if Unathorized and axios has not attempted re-request
-      toast.error(error.response.data.error);
+        let currentToast = null
+        if(!toast.isActive(currentToast)) {
+          currentToast = toast.error(error.response.data.error);
+        }
+      
         
         if (
           error.response &&

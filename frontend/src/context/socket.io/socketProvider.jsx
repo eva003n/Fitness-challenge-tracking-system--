@@ -29,9 +29,9 @@ const SocketProvider = ({ children }) => {
 
   const onNotificatiion = (data) => {
     const newNotifications = [data, ...notifications];
+    console.log(newNotifications)
     setNotifications(newNotifications);
-    localStorage.setItem("notifications", JSON.stringify(newNotifications));
-    console.log(data);
+    // localStorage.setItem("notifications", JSON.stringify(newNotifications));
   };
 
   //state to store the socket instance

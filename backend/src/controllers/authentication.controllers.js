@@ -165,9 +165,8 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
     }
   );
 
-
   const { access_token } = resp.data;
-  if(!access_token) return
+  if (!access_token) return;
   //get userg details
   const response = await axios.get(process.env.GITHUB_USER_URI, {
     headers: {
@@ -175,10 +174,11 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
     },
   });
   const { data } = response;
-  if(!data) return
-
+  if (!data) return;
 
   const isExistingUser = await User.findOne({ email: data.email });
+
+   //generate token for user whether its a new user or existing
 
   //if its not an existing account create one
   let newUser = "";
@@ -188,17 +188,26 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
       name: data.name,
       email: data.email,
       avatar: {
-        imageUrl:data.avatar_url
+        imageUrl: data.avatar_url,
       },
     });
   }
-
-  //generate token for user whether its a new user or existing
   const { accessToken, refreshToken } = generateToken(
     (newUser && newUser._id) || isExistingUser._id,
     (newUser && newUser.email) || isExistingUser.email,
     (newUser && newUser.role) || isExistingUser.role
   );
+if(newUser) {
+  newUser.refreshToken = refreshToken
+  await newUser.save();
+}else {
+  isExistingUser.refreshToken = refreshToken
+  await isExistingUser.save();
+}
+
+//hide the refresh token and password after saving to db to prevent it fom appearing in response which is not secure
+ newUser? newUser.refreshToken = undefined : isExistingUser.refreshToken = undefined;
+ newUser? newUser.password = undefined : isExistingUser.password = undefined;
 
   return res
     .status(200)
@@ -208,7 +217,6 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
       // sameSite: "strict", //CSRF cross site resource forgery attack
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 15 * 60 * 1000, //15min
-
     })
     .cookie("RefreshToken", refreshToken, {
       httpOnly: true, //prevent xss attacks,cookie being accessed via js
@@ -216,7 +224,6 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
       // sameSite: "strict",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000, //7day
-
     })
     .json(
       new ApiResponse(

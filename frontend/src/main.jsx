@@ -11,7 +11,10 @@ createRoot(document.getElementById("root")).render(
 
     <StrictMode>
       <BrowserRouter>
-      <ToastContainer limit={1} transition={Slide} position="top-center" />
+      <ToastContainer 
+      limit={1} transition={Slide} 
+      position="top-center" autoClose={3000}
+        />
           <AuthProvider>
             <SocketProvider>
             <App />

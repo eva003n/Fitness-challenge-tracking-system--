@@ -10,8 +10,8 @@ const Notify = () => {
     return JSON.parse(localStorage.getItem("UnreadNotifications")) || 0;
   });
 useEffect(() => {
-  const unseen =  notifications.reduce((acc, data) => {
-    if (!data.seen) {
+  const unseen =  notifications && notifications.reduce((acc, data) => {
+    if (data &&!data.seen) {
       return acc + 1;
     }
     return acc;

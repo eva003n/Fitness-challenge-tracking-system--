@@ -128,7 +128,7 @@ userSchema.plugin(aggregatePaginate);
 //before saving a creating  new user hash password
 userSchema.pre("save", async function (next) {
   //checks if the provided path is modified then returns true  else if no argument is passed returns true for all paths
-  if (!this.isModified("password")) {
+  if (!this.isModified("password") || !this.password) {
     //passowrd not modified
     return next();
   }
