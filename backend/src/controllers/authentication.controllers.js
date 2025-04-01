@@ -1,6 +1,6 @@
 import { autheticationSchema } from "../middlewares/validator.js";
 import jwt from "jsonwebtoken";
-import ApiError from "../utils/ApiError.js";
+import ApiErrorcons from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import User from "../models/user.model.js";
 import formatError from "../utils/format.js";
@@ -14,24 +14,25 @@ const signUp = asyncHandler(async (req, res, next) => {
   //start transaction
   await session.startTransaction();
   const { email, password } = req.body;
+  //validation
   const { error } = autheticationSchema.validate({
     email,
     password,
   });
-
+//in case of validation error send an error response 
   if (error) {
     return next(
       ApiError.badRequest(
         400,
-        formatError(error.message) || "Provided data failed validation"
+        formatError(error.message) 
       ),
       session
     );
   }
-  // check if user exist before creating new user
+  // check if user exist before creating new user to avoid duplicate user accounts and mongoose throwing a duplcate error due to email havibg a unique index
   const isExistingUser = await User.findOne({ email });
 
-  //if user account already exist
+  //if user account already exist send back an error response and cancel transaction
   if (isExistingUser) {
     return next(
       ApiError.conflictRequest(409, "Account exists, login to your account"),
@@ -43,18 +44,18 @@ const signUp = asyncHandler(async (req, res, next) => {
   const newUser = await User.create({
     email,
     password,
-    userName: `@${email.split("@")[0]}`,
+    userName: `@${email.split("@")[0]}`, //default username with first part of email address
   });
 
-  //if transaction succeeds
+  //if transaction succeeds commit and end transaction
   await session.commitTransaction();
 
   //end transaction after its done
   await session.endSession();
 
-  //hide password for security purposes
+  //hide password for security purposes so it doesn't appear in the response object
   newUser.password = undefined;
-  //on successful account creation
+  //when newuser is not created and is null close the transaction
   if (!newUser) {
     session.abortTransaction();
     session.endSession();
@@ -66,7 +67,7 @@ const signUp = asyncHandler(async (req, res, next) => {
 
 const logIn = asyncHandler(
   //user credentials, validate them before generating a token
-  //Avoid long if statements they lead to hanging request response cycle
+  //Avoid long if statements they cause a situation where a response is not sent back when a cond is not satisfied  which is not a good experience for the client
   async (req, res, next) => {
     const { email, password } = req.body;
     const { error } = autheticationSchema.validate({
@@ -80,13 +81,14 @@ const logIn = asyncHandler(
 
     //returns a document that matches email and includes password field in query
     const isExistingUser = await User.findOne({ email }).select("+password");
+    //if existing account is null means that account doesnt exist
     if (!isExistingUser) {
       return next(
         ApiError.badRequest(404, "Account doesn't exist, create an account")
       );
     }
 
-    //this wont work if passowrd is hidden
+    //this wont work if passowrd is hidden so u must include it in query, check if the password entered and the stored hashed password match
     const isValidPassword = await isExistingUser.isMatchingPassword(password);
 
     if (!isValidPassword) {
@@ -94,8 +96,7 @@ const logIn = asyncHandler(
         ApiError.unAuthorizedRequest(401, "Invalid email or password")
       );
     }
-    //hide password after making it visible in query
-
+ 
     //generate token for user session
     const { accessToken, refreshToken } = generateToken(
       isExistingUser._id,
@@ -105,7 +106,7 @@ const logIn = asyncHandler(
     //store refresh tolen in db
     isExistingUser.refreshToken = refreshToken;
     await isExistingUser.save();
-
+   //hide password after making it visible in query
     //hide the password and refresh token after saving to db to prevent it fom appearing in response which is not secure
     isExistingUser.password = undefined;
     isExistingUser.refreshToken = undefined;
@@ -167,7 +168,7 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
 
   const { access_token } = resp.data;
   if (!access_token) return;
-  //get userg details
+  //get user details using the access token from the resource server
   const response = await axios.get(process.env.GITHUB_USER_URI, {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -175,10 +176,10 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
   });
   const { data } = response;
   if (!data) return;
-
+//check if the user is an existing user
   const isExistingUser = await User.findOne({ email: data.email });
 
-   //generate token for user whether its a new user or existing
+   //generate token for user whether its a new user or existing user
 
   //if its not an existing account create one
   let newUser = "";
@@ -192,11 +193,13 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
       },
     });
   }
+  //generate a token conditionaly, whether its an exiting user or a new one
   const { accessToken, refreshToken } = generateToken(
     (newUser && newUser._id) || isExistingUser._id,
     (newUser && newUser.email) || isExistingUser.email,
     (newUser && newUser.role) || isExistingUser.role
   );
+  //save refresh token to database conditionally
 if(newUser) {
   newUser.refreshToken = refreshToken
   await newUser.save();
@@ -205,7 +208,7 @@ if(newUser) {
   await isExistingUser.save();
 }
 
-//hide the refresh token and password after saving to db to prevent it fom appearing in response which is not secure
+//hide the refresh token and password after saving to db to prevent it from appearing in response which is not secure
  newUser? newUser.refreshToken = undefined : isExistingUser.refreshToken = undefined;
  newUser? newUser.password = undefined : isExistingUser.password = undefined;
 
@@ -235,11 +238,11 @@ if(newUser) {
 });
 
 const logOut = asyncHandler(async (req, res, next) => {
-  //check cookie in request
+  //check cookie in request for refresh token
   const refreshToken = req.cookies.RefreshToken;
   if (!refreshToken)
     return next(ApiError.badRequest(400, "Refresh token is required"));
-  //check if the refresh token sent by the client matches  secret
+  //check if the refresh token sent by the client matches  secret and is not tampered with
   const decodeToken = jwt.verify(
     refreshToken,
     process.env.REFRESH_TOKEN_SECRET
@@ -275,13 +278,14 @@ const tokenRefresh = asyncHandler(async (req, res, next) => {
   if (!RefreshToken)
     return next(ApiError.badRequest(400, "Refresh token is required"));
 
-  //check if refreshtoken matches the one in db
+  //check if refreshtoken matches the secret used to sign it
 
   const decodeToken = jwt.verify(
     RefreshToken,
     process.env.REFRESH_TOKEN_SECRET
   );
-
+  if(!decodeToken) return next(ApiError.unAuthorizedRequest(401, "Unauthorized, invalid refresh token"))
+//check if refresh token matches the one in db
   const user = await User.findById(decodeToken.userId).select("+refreshToken");
   if (!user) return next(ApiError.notFound(404, "User does not exist"));
 
@@ -300,7 +304,7 @@ const tokenRefresh = asyncHandler(async (req, res, next) => {
 
   if (refreshToken) user.refreshToken = refreshToken;
   await user.save();
-  //hide token after saving
+  //hide token after saving to prevent  appearance in response
   user.refreshToken = undefined;
 
   return res
@@ -317,7 +321,7 @@ const tokenRefresh = asyncHandler(async (req, res, next) => {
       secure: process.env.NODE_ENV === "production", //work only with https in production
       // sameSite: "strict",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-      maxAge: 24 * 60 * 60 * 1000, //1day
+      maxAge: 7 * 24 * 60 * 60 * 1000, //7 days
     })
     .json(
       new ApiResponse(200, accessToken, "Access token generated successfully")
@@ -341,7 +345,7 @@ const generateToken = (userId, userEmail, role = "user") => {
       expiresIn: process.env.ACCESS_TOKEN_EXPTRY,
       subject: "authentication",
     }
-  );
+);
   const refreshToken = jwt.sign(
     //header => algo token type
     //payload
@@ -363,19 +367,19 @@ const generateToken = (userId, userEmail, role = "user") => {
 };
 //configure and send refresh
 const configureCookie = (res, accessToken, refreshToken) => {
-  res.cookie("AccessToken", accessToken, {
+  return res.cookie("AccessToken", accessToken, {
     httpOnly: true, //prevent xss attacks
     maxAge: 15 * 60 * 1000, //15min
     secure: process.env.NODE_ENV === "production",
     // sameSite: "strict", //CSRF cross site resource forgery attack
     sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-  });
-  res.cookie("RefreshToken", refreshToken, {
+  })
+  .cookie("RefreshToken", refreshToken, {
     httpOnly: true, //prevent xss attacks,cookie being accessed via js
     secure: process.env.NODE_ENV === "production", //work only with https in production
     // sameSite: "strict",
     sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-    maxAge: 24 * 60 * 60 * 1000, //1day
+    maxAge: 7 * 24 * 60 * 60 * 1000, //7days
   });
 };
 export { signUp, logIn, logOut, thirdPartySignIn, tokenRefresh };
