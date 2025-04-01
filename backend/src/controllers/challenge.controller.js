@@ -577,13 +577,13 @@ const deleteChallenge = asyncHandler(async (req, res, next) => {
     return next(ApiError.notFound(404, "Challange doesn't exists"));
 
   //first check if the person requesting the challenge deletion is the creator of the challenge
-  if (String(isExistingChallenge.createdBy) !== String(req.user._id) || req.user.role !== "admin")
-    return next(
-      ApiError.unAuthorizedRequest(
-        401,
-        "Cannot delete this challenge"
-      )
-    );
+  // if (String(isExistingChallenge.createdBy) !== String(req.user._id) || req.user.role !== "admin")
+  //   return next(
+  //     ApiError.unAuthorizedRequest(
+  //       401,
+  //       "Cannot delete this challenge"
+  //     )
+  //   );
 
   const deletedChallenge = await Challenge.deleteOne({ _id: id });
   if (!deletedChallenge.deletedCount && !deletedChallenge.acknowledged) {
@@ -697,7 +697,6 @@ const challengeProgress = asyncHandler(async (req, res, next) => {
     return 
 // next(ApiError.notFound(404, "Challenge progress not found"));
   const challenge = await Challenge.findById(id);
-  console.log(progress);
 
   challenge.completion = progress[0] && progress[0].percentage;
   if (progress[0] && progress[0].percentage === 100) {
