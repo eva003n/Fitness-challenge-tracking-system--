@@ -114,7 +114,7 @@ const SideBar = ({}) => {
               whileHover={{ scale: 1.1 }}
               whileFocus={{ scale: 1.1 }}
               initial={false}
-              className="mt-10 ml-3 text-violet-600 "
+              className="mt-10 ml-3 text-blue-600"
               onClick={() => {
                 setIsOpen(true);
                 localStorage.setItem("isOpen", true);

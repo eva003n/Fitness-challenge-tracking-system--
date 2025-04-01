@@ -465,6 +465,7 @@ const updateChallenge = asyncHandler(async (req, res, next) => {
     challengeName,
     description,
     workOutType,
+    difficulty,
     startDate,
     endDate,
     status,
@@ -482,6 +483,7 @@ const updateChallenge = asyncHandler(async (req, res, next) => {
     description,
     workOutType,
     startDate,
+    difficulty,
     endDate,
     status,
     instructions,
@@ -507,13 +509,13 @@ const updateChallenge = asyncHandler(async (req, res, next) => {
     await isExistingChallange.save();
   }
   //first check if the person requesting the challenge update check is the creator of the challenge
-  if (isExistingChallenge.createdBy !== req.user._id)
-    return next(
-      ApiError.unauthorized(
-        401,
-        "You are not authorized to update this challenge"
-      )
-    );
+  // if (isExistingChallenge.createdBy !== req.user._id)
+  //   return next(
+  //     ApiError.unauthorized(
+  //       401,
+  //       "You are not authorized to update this challenge"
+  //     )
+  //   );
 
   const updatedChallenge = await Challenge.findOneAndUpdate(
     { _id: id },

@@ -12,6 +12,8 @@ import { useState, useEffect } from "react";
 import { getChallengeData } from "../../services";
 import { getDateByYear } from "../../services/formatDate";
 import { updateChallenge } from "../../services";
+import TextArea from "../../components/common/textArea";
+
 
 const EditChallenge = () => {
   const { user } = useAuth();
@@ -21,13 +23,15 @@ const EditChallenge = () => {
   const [data, setData] = useState({
     challengeName: "",
     description: "",
-    workOutType: "Running",
+    workOutType: "",
     startDate: "",
     endDate: "",
     difficulty: "Beginner",
     image: "",
     createdBy: user._id,
     status: "",
+    access: "",
+    instructions:""
   });
 
   useEffect(() => {
@@ -98,7 +102,7 @@ const EditChallenge = () => {
   return (
     <Container>
       -
-      <form
+      {/* <form
         onSubmit={(e) => handleDataSubmit(e)}
         className="mx-auto grid max-w-[56rem] gap-4 rounded-lg bg-gray-100 px-4 py-8 text-violet-700 md:grid-cols-2 dark:bg-slate-800"
         disabled={isLoading}
@@ -123,16 +127,15 @@ const EditChallenge = () => {
             onChange={(e) => handleChange(e)}
           />
           <Label name={"Workout"}></Label>
-          <Select
+          <Input
             value={data.workOutType}
             name="workOutType"
             onChange={(e) => handleChange(e)}
-          >
-            <option value="Running">Running</option>
-            <option value="Walking">Walking</option>
-            <option value="Strength training">Strength training</option>
-            <option value="Cycling">Cycling</option>
-          </Select>
+            autoComplete="off"
+            className="px-3 dark:bg-slate-700"
+          />
+           
+        
           <Label name={"Difficulty"}></Label>
           <Select
             value={data.difficulty}
@@ -220,7 +223,174 @@ const EditChallenge = () => {
             )}
           </div>
         </div>
-      </form>
+      </form> */}
+      <form
+                onSubmit={(e) => handleDataSubmit(e)}
+                className="mx-auto  max-w-[36rem] grid gap-4 rounded-lg outline-2 outline-gray-700 bg-gray-100 px-4 py-8 text-violet-700  dark:bg-slate-900"
+                disabled={isLoading}
+              >
+                <div className="grid gap-2">
+                  <Label htmlFor="title" name={"Title"}></Label>
+                  <Input
+                    type="text"
+                    name="challengeName"
+                    autoComplete="off"
+                    value={data.challengeName}
+                    className="px-3 dark:bg-slate-800"
+                    onChange={(e) => handleChange(e)}
+                    required
+        
+                  />
+                  <Label htmlFor="decription" name="Description"></Label>
+                  <Input
+                    name="description"
+                    type="text"
+                    value={data.description}
+                    autoComplete="off"
+                    placeholder="Add a short description"
+                    className="px-3 dark:bg-slate-800"
+                    onChange={(e) => handleChange(e)}
+                    required
+                  />
+                  <Label name={"Workout"}></Label>
+                  <Input
+                    name="workOutType"
+                    type="text"
+                    value={data.workOutType}
+                    className="px-3 dark:bg-slate-800"
+                    onChange={(e) => handleChange(e)}
+                    required
+                  />
+                  <Label name={"Difficulty"}></Label>
+                  <Select
+                    value={data.difficulty}
+                    name="difficulty"
+                    onChange={(e) => handleChange(e)}
+                  >
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                  </Select>
+                  <Label name={"Duration"}></Label>
+                  <div className="flex flex-col justify-between gap-2 sm:flex-row">
+                    <div className="grid grow gap-1">
+                      <Label name={"Start"}></Label>
+                      <Input
+                        name="startDate"
+                        type="date"
+                        value={ getDateByYear(data.startDate)}
+                        className="px-3 dark:bg-slate-800"
+                        onChange={(e) => handleChange(e)}
+                    required
+        
+                      />
+                    </div>
+                    <div className="grid grow gap-1">
+                      <Label name={"End"}></Label>
+                      <Input
+                        name="endDate"
+                        type="date"
+                        value={ getDateByYear(data.endDate)}
+                        className="px-3 dark:bg-slate-800"
+                        onChange={(e) => handleChange(e)}
+                    required
+        
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grow gap-1">
+                      <Label name={"Status"}></Label>
+                      <Input
+                        name="status"
+                        type="text"
+                        value={data.status}
+                        className="px-3 dark:bg-slate-800"
+                        onChange={(e) => handleChange(e)}
+                    required
+        
+                      />
+                    </div>
+                 <div className=" grid gap-2">
+                  <div><Label name="Access level"></Label></div>
+                  <Label htmlFor="access"  name="Public" className="flex items-center gap-2">
+                    <Input
+                    name="access"
+                    type="radio"
+                    value="Public"
+                    onChange={(e) => handleChange(e)}
+                    checked={data.access === "Public"}
+                    className="accent-violet-600"
+        
+                    />
+                  </Label>
+                  <Label htmlFor="access" name ="Private" className="flex items-center gap-2">
+                    <Input
+                    name="access"
+                    type="radio"
+                    value="Private"
+                    onChange={(e) => handleChange(e)}
+                    className="accent-violet-600"
+                    checked={data.access === "Private"}
+                    />
+                  </Label>
+                 </div>
+                </div>
+                <Label name="Instructions"></Label>
+                <TextArea
+                 name="instructions"
+                 type="text"
+                 value={data.instructions}
+                 autoComplete="off"
+                 placeholder="Add a some instructions"
+                 className="px-3 dark:bg-slate-800"
+                 onChange={(e) => handleChange(e)}
+        
+                />
+                <div className=" grid gap-2">
+                  <div className="flex items-center justify-center bg-gray-800 h-[16rem] p-4">
+                    {thumbnail || data.image.imageUrl ? (
+                      <div className="relative w-full rounded-sm max-w-[16rem]  flex items-center ">
+                        <X
+                          className="absolute -right-2 -top-3 cursor-pointer rounded-full bg-white text-black"
+                          onClick={handleDelete}
+                          size={18}
+                          strokeWidth={2}
+                        />
+                        <img
+                          src={thumbnail || data.image.imageUrl}
+                          alt="thumbnail"
+                          className="h-[10rem] w-full rounded-sm object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <div className="flex gap-4">
+                          <CloudUpload size={24} color="#eee" />
+                          <Label htmlFor={"image"} name={"Upload image"}></Label>
+                        </div>
+                        <Input
+                          id="image"
+                          name="image"
+                          type="file"
+                          className="hidden"
+                          onChange={(e) => handleChange(e)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex justify-end">
+                  <Button
+                      icon={isLoading && Loader}
+                      isLoading={isLoading}
+                      loader={true}
+                      name={isLoading ? "Updatting ..." : "Update"}
+                      className="bg-violet-600 text-[1rem] tracking-wide text-white"
+                      // disabled={isLoading}
+                      disabled={isLoading}
+                    ></Button>
+                </div>
+              </form>
     </Container>
   );
 };

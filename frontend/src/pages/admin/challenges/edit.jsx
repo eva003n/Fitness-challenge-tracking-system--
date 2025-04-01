@@ -221,7 +221,7 @@ const Edit = () => {
           <div className="flex justify-end">
             <Button
                 icon={isLoading && Loader}
-                isLoading={isLoading}
+              isLoading={isLoading}
                 loader={true}
                 name={isLoading ? "Updating ..." : "Update"}
                 className="bg-violet-600 text-[1rem] tracking-wide text-white"

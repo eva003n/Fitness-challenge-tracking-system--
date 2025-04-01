@@ -395,7 +395,7 @@ const NewChallenge = () => {
               name={isLoading ? "Creating ..." : "Create"}
               className="bg-violet-600 text-[1rem] tracking-wide text-white"
               // disabled={isLoading}
-              disabled={Object.values(data).some((value) => !value ) || isLoading}
+              disabled={ isLoading}
             ></Button>
         </div>
       </form>
