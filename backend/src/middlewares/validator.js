@@ -17,7 +17,6 @@ const autheticationSchema = Joi.object({
     .required("Password is required")
     .pattern(new RegExp("^(?![._])([a-zA-Z][a-zA-Z0-9._]{7,19})(?<![._])$"))
     .message("Password is too weak!"),
-  //OTP: Joi.string().min(6).max(6).required("Code sent to email is required"),
 });
 
 const profileSchema = Joi.object({
@@ -75,7 +74,7 @@ const challengeSchema = Joi.object({
   difficulty: Joi.string().trim(),
   status: Joi.string().trim().min(5).valid("Completed", "In progress"),
   access: Joi.string().allow("public", "private"),
-  instructions: Joi.string(),
+  instructions: Joi.string().trim().allow(""),
 });
 const createActivitySchema = Joi.object({
   //   challengeId: Joi.string().trim().min(24).max(24).required("Challenge id is required"),
