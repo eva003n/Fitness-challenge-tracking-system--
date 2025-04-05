@@ -4,15 +4,13 @@ const AuthContext = createContext({
     user: null,
     role: null,
     token: null,
-    isOpen: null,
     isLogIn: false,
     isLoading: false,
     signUp: async () => {},
     logIn: async () => {},
+    logInWithIdentityProvider : () => {},
     logOut: async () => {},
-    redirect: async () => {},
     logInState: () => {},
-    updateAvatar:  () => {}
   });
 
 //custom hook to use | read  the context
