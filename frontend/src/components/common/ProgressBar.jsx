@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { getWholeNumber } from "../../../utils";
+import { getWholeNumber } from "../../utils";
 const ProgressBar = ({ count }) => {
   return (
     <div className="flex flex-col items-end gap-1">

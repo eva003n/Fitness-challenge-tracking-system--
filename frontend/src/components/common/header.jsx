@@ -29,7 +29,7 @@ const {user, token} = useAuth();
       {/* {user && <SearchBar className="ml-34 hidden md:flex " placeholder="Search challenges" width={30} />} */}
       {!user && !token && (
         <Navbar
-          className={`z-100 max-w-]2xs fixed -right-[100%] top-0 flex h-screen w-3/4 flex-col justify-start gap-4 bg-violet-50 px-4 font-normal md:static md:h-auto md:w-auto md:max-w-none md:grow md:flex-row md:bg-none md:px-0 transition-all duration-300 dark:bg-gray-900 ${isOpen ? "right-0" : "-right-[100%]"}`}
+          className={`z-100 max-w-2xs fixed -right-[100%] top-0 flex h-screen w-3/4 flex-col justify-start gap-4 bg-violet-50 px-4 font-normal md:static md:h-auto md:w-auto md:max-w-none md:grow md:flex-row md:bg-none md:px-0 transition-all duration-300 dark:bg-gray-900 ${isOpen ? "right-0" : "-right-[100%]"}`}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           childclasses="nav-top flex flex-col items-center gap-4 md:m-auto md:flex-row md:gap-12"
@@ -56,15 +56,15 @@ const {user, token} = useAuth();
          <div className=" md:flex ">
          <Link to={ user && user.role === "admin"? "/admin/profile" : "/profile"}>{ <Avatar />}</Link>
          </div>
-         {
+         {/* {
           !user &&  (
             <Button 
             icon={X}
-            className=" md:hidden"
+            className=" md:hidden text-gray-700 dark:text-gray-400"
             onClick={() => setIsOpen(false)} >
             </Button>
           )
-         }
+         } */}
         </div>
       )}
       {
@@ -72,7 +72,7 @@ const {user, token} = useAuth();
           <div className=" md:flex">
             <Button
               icon={Menu}
-              className=" md:hidden"
+              className=" md:hidden text-gray-700 dark:text-gray-400"
               onClick={handleClickMenu}
             />
           </div>

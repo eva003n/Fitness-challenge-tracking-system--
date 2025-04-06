@@ -119,14 +119,13 @@ const { user, logOut } = useAuth();
       e.stopPropagation();
       e.preventDefault();
       setIsLoading(true);
-      const response = await deleteUserAccount(user._id);
+      // const response = await deleteUserAccount(user._id);
 
-      if (response.success) {
+      // if (response.success) {
         await logOut();
-
-        toast.info(response.message);
+localStorage.clear();
         setIsLoading(false);
-      }
+      // }
     } catch (e) {
       setIsLoading(false);
       toast.error(e.message);
@@ -134,12 +133,9 @@ const { user, logOut } = useAuth();
   };
   return (
     <Container>
-      {/* {isLoading ? (
-        <Loader />
-      ) : ( */}
       <>
         <form
-          className="mx-auto grid gap-4 sm:grid-cols-2 sm:gap-12"
+          className="mx-auto grid gap-4 sm:grid-cols-2 sm:gap-12 md:px-4"
           onSubmit={handleProfileUpdate}
         >
           <Button
@@ -281,7 +277,7 @@ const { user, logOut } = useAuth();
                 <div>
                   <Button
                     name={isLoading ? "Saving" : "Save changes"}
-                    className="float-right bg-violet-600 tracking-wide"
+                    className="float-right bg-violet-600 tracking-wide text-gray-100"
                     icon={isLoading && Loader2}
                     isLoading={isLoading}
                     loader={true}
@@ -305,7 +301,7 @@ const { user, logOut } = useAuth();
             <Button
               icon={isLoading ? Loader2 : Trash2}
               name={isLoading ? "Deleting" : "Delete "}
-              className="float-right bg-rose-600 tracking-wide"
+              className="float-right bg-rose-600 tracking-wide text-gray-100"
               onClick={handleAccountDeletion}
               loader={isLoading ? true : false}
               isLoading={isLoading}

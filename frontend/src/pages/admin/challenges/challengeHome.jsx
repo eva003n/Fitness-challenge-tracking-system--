@@ -3,6 +3,7 @@ import Container from "../../../components/common/Container";
 import SearchBar from "../../../components/common/SearchBar";
 import Button from "../../../components/common/Button";
 
+
 import { toast } from "react-toastify";
 import { deleteChallenge, getAllChallenges } from "../../../services";
 import { Pen, Trash2, ChevronLeft, ChevronRight, Plus } from "lucide-react";
@@ -13,6 +14,7 @@ import { getDateDifference, getDateByDay } from "../../../services/formatDate";
 import { getChallenges } from "../../../services";
 import Wrapper from "../../../components/common/Wrapper";
 import HeaderTop from "../../../components/common/headerTop";
+import Select from "../../../components/common/Select";
 
 const TABLE_HEADERS = [
   "No",
@@ -56,7 +58,7 @@ const ChallengesPage = () => {
     }
 
   });
-
+const [isSubmitting, setIsSubmitting] = useState(false)
   useEffect(() => {
   const getAllUsers = async() => {
 try {
@@ -79,7 +81,7 @@ try {
 }
   }
   getAllUsers()
-  }, [])
+  }, [isSubmitting, paginate.page, paginate.limit]);
   const handleFilter = (e) => {
     setSearchText(e.target.value);
     setChallenges(() => filterUsers(challenges, searchText));
@@ -97,7 +99,22 @@ try {
       // return toast.error(error.message);
     }
   };
+  const handlePageChange = (page) => {  
+    setPaginate({
+      ...paginate,
+      page: page,
+    });
+    setIsSubmitting(true)
+  }
 
+  const handleLimitChange = (limit) => {  
+    setPaginate({
+      ...paginate,
+      limit: limit,
+    });
+    setIsSubmitting(true)
+
+  }
   return (
     <Container>
     
@@ -130,7 +147,7 @@ try {
           </h2>
           {
             <table className="min-w-full table-auto">
-              <thead>
+              <thead className="w-full">
                 <tr>
                   {TABLE_HEADERS.map((header, index) => (
                     <th
@@ -215,21 +232,45 @@ try {
               </tbody>
             </table>
           }
-          <div className="mt-2 flex justify-end text-gray-300">
-            <p>
-              {`${(paginate && paginate.page) || 0} of ${(paginate && paginate.totalPages) || 0}`}
-            </p>
-            <Button
-              icon={ChevronLeft}
-              className="disabled:text-gray-700"
-              disabled={paginate && paginate.hasPrevPage}
-            />
-            <Button
-              icon={ChevronRight}
-              className="disabled:text-gray-700"
-              disabled={paginate && paginate.hasNextPage}
-            />
-          </div>
+            <div className="mt-2 flex justify-end  text-gray-300">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
+                          <p className="text-gray-400 grow">Limit rows</p>
+                          <Select
+                            name={"limit"}
+                            value={paginate.limit}
+                            onChange={(e) => handleLimitChange(e.target.value)}
+                            className="w-4"
+                          >
+                        
+                            {/* <option value="1">1</option> */}
+                            {/* <option value="3">3</option> */}
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            </Select>
+                        </div>
+                             <div className="flex items-center gap-2">
+                               <p>
+                                           {`${paginate && paginate.page || 0} of ${paginate && paginate.totalPages || 0}` }
+                        
+                                         </p>
+                                           <Button
+                                             icon={ChevronLeft}
+                                             className="disabled:text-gray-700"
+                                             disabled={paginate && !paginate.hasPrevPage}
+                                             onClick={() => handlePageChange(paginate.page - 1)}
+                                           />
+                                           <Button
+                                             icon={ChevronRight}
+                                             className="disabled:text-gray-700"
+                                              disabled={paginate && !paginate.hasNextPage}
+                                             onClick={() => handlePageChange(paginate.page + 1)}
+                                           />
+                             </div>
+                      </div>
+                    </div>
         </div>
       </Wrapper>
     </Container>

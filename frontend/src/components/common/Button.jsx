@@ -3,9 +3,9 @@ const Button = ({ name, icon: Icon, loader, isLoading, children, ...props }) => 
   return (
     <button
       {...props}
-      className={`flex cursor-pointer justify-center gap-2 rounded-sm px-3.5 py-1.5 font-medium text-gray-100 disabled:cursor-not-allowed disabled:opacity-80 dark:text-gray-200 ${props.className}`}
+      className={`flex cursor-pointer justify-center gap-2 rounded-sm px-3.5 py-1.5 font-medium  disabled:cursor-not-allowed disabled:opacity-80 ${props.className}`}
     >
-      {Icon && <Icon size={18} strokeWidth={2} className={`text-gray-800 dark:text-gray-400  ${loader && isLoading && "animate-spin"}`}/>
+      {Icon && <Icon size={18} strokeWidth={2} className={` ${loader && isLoading && "animate-spin"}`}/>
       }
       {name}
       {children}

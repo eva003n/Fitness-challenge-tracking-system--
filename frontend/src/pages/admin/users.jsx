@@ -130,7 +130,7 @@ const getAllUsers = async() => {
   }
 }
 getAllUsers()
-}, [isSubmit])
+}, [isSubmit, paginate.page, paginate.limit]);
 
   const handleFilter = (e) => {
     setSearchText(e.target.value);
@@ -197,6 +197,24 @@ getAllUsers()
       setIsLoading(false)
     }
   };
+
+  const handlePageChange = (page) => {  
+    setPaginate({
+      ...paginate,
+      page: page,
+    });
+    setIsSubmit(() => true);
+
+  }
+  const handleLimitChange = (limit) => {  
+    setPaginate({
+      ...paginate,
+      limit: limit,
+    });
+    setIsSubmit(() => true);
+
+  }
+
   return (
     <Container>
    
@@ -305,21 +323,44 @@ getAllUsers()
               </tbody>
             </table>
           }
-          <div className="mt-2 flex justify-end text-gray-300">
-                 <p>
-            {`${paginate && paginate.page || 0} of ${paginate && paginate.totalPages || 0}` }
-      
-          </p>
-            <Button
-              icon={ChevronLeft}
-              className="disabled:text-gray-700"
-              disabled={paginate && paginate.hasPrevPage}
-            />
-            <Button
-              icon={ChevronRight}
-              className="disabled:text-gray-700"
-               disabled={paginate && paginate.hasNextPage}
-            />
+          <div className="mt-2 flex justify-end  text-gray-300">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <p className="text-gray-400 grow">Limit rows</p>
+                <Select
+                  name={"limit"}
+                  value={paginate.limit}
+                  onChange={(e) => handleLimitChange(e.target.value)}
+                  className="w-4"
+                >
+              
+                  {/* <option value="1">1</option> */}
+                  {/* <option value="3">3</option> */}
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  </Select>
+              </div>
+                   <div className="flex items-center gap-2">
+                     <p>
+                                 {`${paginate && paginate.page || 0} of ${paginate && paginate.totalPages || 0}` }
+              
+                               </p>
+                                 <Button
+                                   icon={ChevronLeft}
+                                   className="disabled:text-gray-700"
+                                   disabled={paginate && !paginate.hasPrevPage}
+                                   onClick={() => handlePageChange(paginate.page - 1)}
+                                 />
+                                 <Button
+                                   icon={ChevronRight}
+                                   className="disabled:text-gray-700"
+                                    disabled={paginate && !paginate.hasNextPage}
+                                   onClick={() => handlePageChange(paginate.page + 1)}
+                                 />
+                   </div>
+            </div>
           </div>
         </div>
         {isOpen && (

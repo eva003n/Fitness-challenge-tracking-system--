@@ -3,7 +3,7 @@ import StatsCard from '../business/StatsCard'
 import { useEffect, useState } from 'react'
 import { getUserChallengeSummary } from '../../services'
 import {useAuth} from "../../context/authProvider"
-import { getWholeNumber } from '../../../utils'
+import { getWholeNumber } from '../../utils'
 
 
 
@@ -11,22 +11,29 @@ const CHALLENGE_STATS = [
     {
         title:"Challenges completed",
         icon: CircleCheckBig,
-        color: "text-green-600"
+        color: "text-green-600",
+        total:4
     },
     {
         title:"Steps taken",
         icon: Footprints,
-        color: "fill-amber-600 text-amber-600"
+        color: "fill-amber-600 text-amber-600",
+        total:4324
+
     },
     {
         title:"Average Heart rate",
         icon: HeartPulse,
-        color: " text-red-600"
+        color: " text-red-600",
+        total:40
+
     },
     {
         title:"Calories burned",
         icon: Flame,
-        color: "fill-yellow-600 text-rose-600"
+        color: "fill-yellow-600 text-rose-600",
+        total:879
+
     },
 ]
 const StatsArea = ({analytics, data, isLoading}) => {
@@ -34,6 +41,7 @@ const {user} = useAuth()
 
   return (
  <section className="grid gap-4 sm:grid-cols-2">
+
             <StatsCard
               title={"Challenges completed"}
               count={data && data.challengesCompleted[0] && data.challengesCompleted[0]["total"] || 0}

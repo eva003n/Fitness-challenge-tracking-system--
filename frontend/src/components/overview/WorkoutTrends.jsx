@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import PieChartCompoenent from "../charts/PieChart";
 import { getWorkoutSummary } from "../../services";
-import { getWholeNumber } from "../../../utils";
+import { getWholeNumber } from "../../utils";
+
 const WORKOUTS = [
   {
     workout: "Yoga",

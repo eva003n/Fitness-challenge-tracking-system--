@@ -5,10 +5,9 @@ import {
   logIn,
   logOut,
   tokenRefresh,
-  thirdPartySignIn
+  thirdPartySignInWithGithub,
+  thirdPartySignIn,
 } from "../controllers/authentication.controllers.js";
-
-
 
 const router = Router();
 
@@ -17,6 +16,7 @@ router.route("/signup").post(signUp);
 router.route("/login").post(logIn);
 router.route("/logout").delete(logOut);
 router.route("/refreshtoken").post(tokenRefresh);
-router.route("/github/oauth").post(thirdPartySignIn)
+router.route("/github/oauth").post(thirdPartySignInWithGithub);
+router.route("/oauth2").post(thirdPartySignIn);
 
 export default router;

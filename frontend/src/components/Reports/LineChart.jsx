@@ -8,7 +8,8 @@ import {
     Legend,
     Label
   } from "recharts";
-import { getWholeNumber } from "../../../utils";
+import { getWholeNumber } from "../../utils";
+
   
 
 const LineChartComponent = ({data, color}) => {

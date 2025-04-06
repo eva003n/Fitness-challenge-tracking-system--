@@ -5,11 +5,9 @@ import { X } from "lucide-react";
 import Button from "./Button";
 
 const Navbar = ({ ...props }) => {
-  const { user, token, logOut, logInState } = useAuth();
+  const { user, token, logInState } = useAuth();
 
-  const handleClick = async () => {
-    logInState(true);
-  };
+
 
   return (
     <nav className={props.className}>
@@ -49,7 +47,10 @@ const Navbar = ({ ...props }) => {
 
       {!user && (
         <div className={`md:hidden ${!user ? "-order-1 ml-auto mt-4" : ""}`}>
-          <Button onClick={() => props.setIsOpen(false)}>
+          <Button 
+          onClick={() => props.setIsOpen(false)}
+          className="text-gray-700 dark:text-gray-400"
+          >
             <X />
           </Button>
         </div>
@@ -59,8 +60,8 @@ const Navbar = ({ ...props }) => {
           <Button name={
             <NavLink
             to={"/login"}
-            className="nav-top text-gray-800 dark:text-white rounded-md md:bg-violet-600 px-4 py-1.5 tracking-wider "
-            onClick={() => handleClick()}
+            className="nav-top text-gray-700 dark:text-gray-100  rounded-md md:bg-violet-600 px-4 py-1.5 tracking-wider "
+            onClick={() => logInState(true)}
           >
             Log in
           </NavLink>

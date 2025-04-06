@@ -14,14 +14,14 @@ const Home = () => {
           <h1 className="text-3xl md:text-5xl font-semibold leading-normal tracking-wider text-slate-50">
             Track Your Progress. Stay Motivated. Achieve More
           </h1>
-          <p className="text-gray-400">
-          Take your fitness journey to the next level with our Fitness Challenge Tracking System! Whether you're a beginner or a pro, our platform helps you stay accountable and push your limits. Start your challenge today and achieve more than ever before!
+          <p className="text-gray-400 p-4">
+          Take your fitness journey to the next level with our Fit track! Whether you're a beginner or a pro, our platform helps you stay accountable and push your limits. Start your challenge today and achieve more than ever before!
           </p>
           <div className="flex items-center justify-center">
             <Link to={"/signup"} onClick={logInState(false)}>
               <Button
                 name={"Get Started"}
-                className="bg-violet-600 hover:bg-violet-700 active:bg-violet-800"
+                className="bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-gray-100"
               />
             </Link>
           </div>

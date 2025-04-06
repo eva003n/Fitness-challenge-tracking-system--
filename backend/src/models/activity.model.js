@@ -20,11 +20,12 @@ const activitySchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
       required: [true, "User is required"],
+      index: true
+
     },
     workout: {
       type: String,
       trim: true,
-      enum: ["Running", "Cycling", "Walking", "Strength training"],
     },
     //default tracking metrics
     calories: {

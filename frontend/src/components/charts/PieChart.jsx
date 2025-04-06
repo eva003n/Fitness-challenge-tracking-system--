@@ -1,6 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
-import { getWholeNumber } from "../../../utils";
-import { useEffect, useState } from "react";
+ 
 
 const ACTIVITY_TOTALS = [
   {

@@ -40,7 +40,7 @@ const Notifications = () => {
   const { user } = useAuth();
   const { socket, handleMarkAsRead, notifications } = useSocket();
   const [isLoading, setIsLoading] = useState(false);
-  const [notification, setNotification] = useState(null);
+  const [notification, setNotification] = useState([]);
   useEffect(() => {
     const getUserNotifications = async () => {
       try {
@@ -64,7 +64,7 @@ const Notifications = () => {
       setIsLoading(false);
       clearTimeout(timer);
     };
-  }, [notifications]);
+  }, [notification]);
   return (
     <Container>
       <div className="mx-auto grid max-w-[48rem] items-start gap-4 rounded-md dark:bg-gray-800/10 px-1 dark:outline-1 outline-gray-700">
@@ -78,12 +78,12 @@ const Notifications = () => {
           transition={{ duration: 0.3 }}
           className="grid gap-2 py-4 transition-all duration-300 sm:px-9"
         >
-          {isLoading && !notification &&  (
+          {isLoading && !notification.length &&  (
             <div className="flex justify-center">
               <Loader2 className={isLoading && "animate-spin text-gray-200"} />
             </div>
           )}
-          {!isLoading && notification === null && (
+          {!isLoading  && !notification.length && (
             <div className="text-center text-gray-400">
               <p className="">No notifications yet</p>
             </div>

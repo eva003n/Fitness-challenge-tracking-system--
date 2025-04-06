@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import { getActivityProgress } from "../services";
 import { useAuth } from "../context/authProvider";
 import LineChartComponent from "../components/Reports/LineChart";
-import { getWholeNumber } from "../../utils";
+import { getWholeNumber } from "../utils/index";
 import Select from "../components/common/Select";
 import Label from "../components/common/label";
 import { FilterX, Loader, Download } from "lucide-react";
@@ -88,7 +88,7 @@ const Reports = () => {
             <Button
               name={isLoading ? "Generating..." : "Download report"}
               icon={!isLoading ? Download : Loader}
-              className="bg-violet-600 hover:bg-violet-700"
+              className="bg-violet-600 hover:bg-violet-700 text-gray-100"
               loader={isLoading}
               isLoading={isLoading}
             />
@@ -96,7 +96,7 @@ const Reports = () => {
             !isLoading && (
               <Button 
               name={"Preview"}
-              className="bg-violet-600 hover:bg-violet-700"
+              className="bg-violet-600 hover:bg-violet-700 text-gray-100"
               onClick={handleShow} />
             )
            }

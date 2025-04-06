@@ -9,7 +9,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { challengeCompletionRate } from "../../services";
-import { getWholeNumber } from "../../../utils";
+import { getWholeNumber } from "../../utils";
+
 
 
 const CHALLENGEcOMPLETIONRATE = [

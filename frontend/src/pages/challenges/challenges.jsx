@@ -19,9 +19,9 @@ import ListItem from "../../components/common/ListItem";
 import ProgressBar from "../../components/common/ProgressBar";
 import { getDateByDay } from "../../services/formatDate.js";
 import Container from "../../components/common/Container.jsx";
-import { getWholeNumber } from "../../../utils/index.js";
 import { useAuth } from "../../context/authProvider.js";
 import HeaderTop from "../../components/common/headerTop.jsx";
+import { getWholeNumber } from "../../utils/index.js";
 
 const Challenges = () => {
   const { user } = useAuth();

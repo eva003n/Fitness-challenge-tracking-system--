@@ -1,7 +1,8 @@
 import Logo from "../common/logo";
 import { useAuth } from "../../context/authProvider";
-import { getWholeNumber } from "../../../utils";
 import Avatar from "../common/avatar";
+import { getWholeNumber } from "../../utils";
+
 
 const getTotal = (metrics) => {
   return metrics.reduce((acc, metric) => getWholeNumber(acc + metric.total), 0);

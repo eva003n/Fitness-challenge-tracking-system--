@@ -11,9 +11,8 @@ import formatError from "../utils/format.js";
 import Challenge from "../models/challenge.model.js";
 import Activity from "../models/activity.model.js";
 import { formatAndConvertObjectId } from "../utils/index.js";
-import Notification from "../models/notificstion.model.js";
 import mongoose from "mongoose";
-import logger from "../logger/logger.winston.js";
+
 
 
 const createActivity = asyncHandler(async (req, res, next) => {
@@ -28,9 +27,11 @@ const createActivity = asyncHandler(async (req, res, next) => {
     calories,
     distanceCovered,
   } = req.body;
-  //Validation if error return with error
+//atomic operations
   const session = await mongoose.startSession();
   await session.startTransaction();
+
+  //Validation 
   const { error } = createActivitySchema.validate({
     challengeId,
     userId,
@@ -43,17 +44,17 @@ const createActivity = asyncHandler(async (req, res, next) => {
     date,
   });
   if (error)
-    return next(ApiError.badRequest(400, "joi" + formatError(error.message)));
+    return next(ApiError.badRequest(400, formatError(error.message)));
 
   //Check if challange to track actually exixts
-  const isExistingChallange = await Challenge.findById(challengeId);
-  if (!isExistingChallange)
+  const isExistingChallenge = await Challenge.findById(challengeId);
+  if (!isExistingChallenge)
     return next(
       ApiError.notFound(404, "Challenge to track doesn't exists"),
       session
     );
-  isExistingChallange.status = "In progress";
-  await isExistingChallange.save();
+  isExistingChallenge.status = "In progress";
+  await isExistingChallenge.save();
 
   const createdActivity = await Activity.create({
     challengeId,
@@ -65,15 +66,8 @@ const createActivity = asyncHandler(async (req, res, next) => {
     calories,
     distanceCovered,
     date,
-  });
-  if (!createdActivity)
-    return next(
-      ApiError.internalServerError(
-        500,
-        "Something went wrong while creating Activity tracking"
-      ),
-      session
-    );
+  }, { session });
+ 
   session.commitTransaction();
   session.endSession();
 
@@ -150,8 +144,10 @@ const getAllActivities = asyncHandler(async (req, res, next) => {
 
 const getActivity = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
+
   const { error } = paramsSchema.validate({ id });
   if (error) return next(ApiError.badRequest(400, formatError(error.message)));
+  
   const activity = await Activity.findById(id);
   if (!activity)
     return next(ApiError.notFound(404, "Activity doesn't exist or is deleted"));
@@ -332,7 +328,6 @@ const deleteActivity = asyncHandler(async (req, res, next) => {
     .json(new ApiResponse(200, null, "Activity deletion successful"));
 });
 const deleteAllActivities = asyncHandler(async (req, res, next) => {
-  const { activityIds } = req.body;
   //if Analytic is already deleted prevent documentNotFoundError by Mongoose
   const isExistiingActivity = await Activity.find();
   if (!isExistiingActivity || !isExistiingActivity.length)
@@ -351,73 +346,20 @@ const deleteAllActivities = asyncHandler(async (req, res, next) => {
     .status(200)
     .json(new ApiResponse(200, null, "All activites deleted"));
 });
+
+//user reports for the current month and year
 const activityProgress = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   let {year, month } = req.query
-  console.log(typeof year, typeof month)
   const {error:paramsError, value} = querySchema.validate({year, month})
   const { error } = paramsSchema.validate({ id });
   if (error) return next(ApiError.badRequest(400, formatError(error.message)));
   if (paramsError) return next(ApiError.badRequest(400, formatError(error.message)));
 //defaults to current year and month
   year = parseInt(year) || new Date().getFullYear()
-  //default current month is zero based index
+  //default current month,  zero based index
   month = parseInt(month) || new Date().getMonth() + 1
 
-
-
-  // const aggregation = [
-    
-  //     {
-  //       $match: {
-  //         challengeId: formatAndConvertObjectId(id),
-  //       },
-  //     },
-  //     {
-  //       $group: {
-  //         _id: "$challengeId",
-  //         totalActivities: {
-  //           $sum: 1,
-  //         },
-  //         totalCompleted: {
-  //           $sum: {
-  //             $cond: [
-  //               {
-  //                 $eq: ["$status", "Completed"],
-  //               },
-  //               1,
-  //               0,
-  //             ],
-  //           },
-  //         },
-  //       },
-  //     },
-  //     {
-  //       $project: {
-  //         totalActivities: 1,
-  //         totalCompleted: 1,
-  //         percentage: {
-  //           $cond: [
-  //             {
-  //               $or: [
-  //                 { $ne: ["$totalActivities", 0] },
-  //                 { $ne: ["$totalCompleted", 0] },
-  //               ],
-  //             },
-  //             {
-  //               $multiply: [
-  //                 {
-  //                   $divide: ["$totalCompleted", "$totalActivities"],
-  //                 },
-  //                 100,
-  //               ],
-  //             },
-  //             0,
-  //           ],
-  //         },
-  //       },
-  //     },
-  //   ]
   const aggregation = [
 
       {

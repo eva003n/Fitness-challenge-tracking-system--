@@ -1,9 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import {
   logInUser,
   logOutUser,
   registerUser,
-  getAuthorizationCode,
+  thirdPartySignIn,
 } from "../services/index.js";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/common/Loader";
@@ -22,7 +22,6 @@ const AuthProvider = ({ children }) => {
   const [isLogIn, setIsLogIn] = useState(() => {
     return JSON.parse(localStorage.getItem("isLogIn")) || false;
   });
-  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -43,7 +42,8 @@ const AuthProvider = ({ children }) => {
       }
     } catch (e) {
       setIsLoading(false);
-      return toast.error(e.message || "Something went wrong, try again");
+    }finally {
+      setIsLoading(false)
     }
   };
   const logIn = async (userData) => {
@@ -67,11 +67,41 @@ const AuthProvider = ({ children }) => {
       }
     } catch (e) {
       setIsLoading(false);
-      if (e.code === "ERR_NETWORK") toast.error(`${e.message}, try again`);
       toast.error(e.message);
+    }finally {
+      setIsLoading(false)
     }
 
     // return toast.error(e.message || "Something went wrong, try again")
+  };
+  const logInWithIdentityProvider = async (code, provider) => {
+    try {
+       setIsLoading(true)
+      //make request to oauth2 endpoint
+      const response = await thirdPartySignIn(code, provider);
+      if (response && response.success) {
+        const { data } = response;
+
+        setUser(data.user);
+        setToken(data.accessToken);
+        setRole(data.user.role);
+
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.accessToken);
+
+        //cancel loading state
+        setIsLoading(false);
+        return toast.info(response.message);
+      }
+    } catch (e) {
+      setIsLoading(false);
+      toast.error(e.message);
+    }finally {
+  //  localStorage.removeItem("signUpMethod")
+
+      setIsLoading(false)
+    }
+
   };
   const logOut = async () => {
     try {
@@ -79,11 +109,11 @@ const AuthProvider = ({ children }) => {
       setIsLoading(true);
       //make request to logout endpoint
       const response = await logOutUser();
-
+//if success remove user and token
       if (response.success) {
         localStorage.removeItem("user");
         localStorage.removeItem("token");
-        //when user logs out we want to navigate then to login page but the user and token are still in state which will prevent redirection
+        //when user logs out we want to navigate then to login page but the user and token are still in state which will prevent redirection, so reset the state also
         setUser(null);
         setToken(null);
         setIsLogIn(true);
@@ -93,7 +123,7 @@ const AuthProvider = ({ children }) => {
       }
     } catch (e) {
       setIsLoading(false);
-      return toast.error(e.message || "Something went wrong, try again");
+      return toast.error(e.message);
     }
   };
 
@@ -101,33 +131,6 @@ const AuthProvider = ({ children }) => {
   const logInState = (value) => {
     localStorage.setItem("isLogIn", value);
     setIsLogIn(value);
-  };
-  const redirect = () => {
-      const sendToken = async () => {
-        try {
-          console.log("hello")
-          const response = await getAuthorizationCode();
-
-          if (response.success) {
-            const { data } = response;
-
-            setUser(data.user);
-            setToken(data.accessToken);
-
-            localStorage.setItem("user", JSON.stringify(data.user));
-            localStorage.setItem("token", data.accessToken);
-
-            //redirect to dashboard
-            navigate("/dashboard");
-            return toast.info(data.message || "Logged in successfully");
-          }else {
-            navigate("/login")
-          }
-        } catch (e) {
-        console.log(e.message)
-      };
-    }
-    sendToken();
   };
 
   useEffect(() => {
@@ -155,20 +158,16 @@ const AuthProvider = ({ children }) => {
         token,
         setUser,
         logIn,
+        logInWithIdentityProvider,
         signUp,
         isLogIn,
         isLoading,
         logOut,
         logInState,
-        isOpen,
-        redirect,
+      
       }}
     >
-      {isLoading ? (
-        <Loader className="flex h-screen w-full flex-col items-center justify-center gap-4 dark:bg-gray-900 bg-slate-50" />
-      ) : (
-        children
-      )}
+      {children}
     </AuthContext.Provider>
   );
 };

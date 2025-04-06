@@ -1,12 +1,13 @@
 import { autheticationSchema } from "../middlewares/validator.js";
 import jwt from "jsonwebtoken";
-import ApiErrorcons from "../utils/ApiError.js";
+import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import User from "../models/user.model.js";
 import formatError from "../utils/format.js";
 import axios from "axios";
 import asyncHandler from "../utils/asyncHandler.js";
 import mongoose from "mongoose";
+import qs from "qs";
 
 const signUp = asyncHandler(async (req, res, next) => {
   //create a transaction first create a session and then create a new user
@@ -138,7 +139,7 @@ const logIn = asyncHandler(
   }
 );
 
-const thirdPartySignIn = asyncHandler(async (req, res, next) => {
+const thirdPartySignInWithGithub = asyncHandler(async (req, res, next) => {
   //Authrization code sent by identity provider Authorization server on the frontend
   const { authorizationCode } = req.body;
 
@@ -185,7 +186,7 @@ const thirdPartySignIn = asyncHandler(async (req, res, next) => {
   let newUser = "";
   if (!isExistingUser) {
     newUser = await User.create({
-      userName: data.login,
+      userName: data.login || `@${data.email.split("@")[0]}`,
       name: data.name,
       email: data.email,
       avatar: {
@@ -237,6 +238,165 @@ if(newUser) {
     );
 });
 
+const thirdPartySignIn = asyncHandler(async (req, res, next) => {
+  const { authorizationCode, identityProvider } = req.body;
+  
+if(!authorizationCode || !identityProvider) return
+
+  
+let resp = "", newUser = "", isExistingUser = ""
+
+  if( identityProvider === "google") {
+     //get access token from authorization server using authorization code for future requests
+    // axios post format url -> data -> config
+    //axios.post(URL, requestBody, configOptions)
+
+    resp = await axios.post(process.env.GOOGLE_ACCESS_TOKEN_URL, 
+ 
+      // send url encoded body to server
+      qs.stringify({
+        client_id: process.env.GOOGLE_CLIENT_ID,
+        client_secret: process.env.GOOGLE_CLIENT_SECRET,
+        code: authorizationCode ,
+        redirect_uri: process.env.GOOGLE_REDIRECT_URL,
+        grant_type: "authorization_code",
+      }),
+      {
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        }
+
+      }
+     )
+//decode id token to get user details faster without need to make another request to the resource server
+  const { access_token, id_token } = resp.data;
+
+  if (!access_token) return;
+  //get user details using the access token from the resource server
+   const response = await axios.get(process.env.GOOGLE_USER_URI, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    }
+   })
+
+   const data = response.data
+   if (!data) return;
+   
+    //check if the user is an existing user
+    isExistingUser = await User.findOne({ email: data.email });
+//
+    if (!isExistingUser) {
+      newUser = await User.create({
+        userName: data.given_name || `@${data.email.split("@")[0]}`,
+        name: data.name,
+        email: data.email,
+        avatar: {
+          imageUrl: data.picture,
+        },
+      });
+    }
+
+  }
+  
+  else if(identityProvider === "github") {
+axios.defaults.headers.accept = "application/json";
+
+     resp = await axios.post(
+      process.env.GITHUB_ACCESS_TOKEN_URL,
+      {
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+        },
+  
+      },
+  
+      {
+        params: {
+          client_id: process.env.GITHUB_CLIENT_ID,
+          client_secret: process.env.GITHUB_CLIENT_SECRET,
+          code: authorizationCode,
+        },
+      }
+    );
+
+    //get user details using the access token from the resource server
+    const { access_token } = resp.data;
+    console.log("access_token " + access_token)
+    if (!access_token) return;
+    const response = await axios.get(process.env.GITHUB_USER_URI, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+    const { data } = response;
+    if (!data) return;
+    console.log("user" + data)
+
+    //check if the user is an existing user
+   isExistingUser = await User.findOne({ email: data.email });
+
+  //if its not an existing account create one
+  if (!isExistingUser) {
+    newUser = await User.create({
+      userName: data.login,
+      name: data.name,
+      email: data.email,
+      avatar: {
+        imageUrl: data.avatar_url,
+      },
+    });
+  }
+  
+  }
+  
+  // generate refresh and access token
+  //generate a token conditionaly, whether its an exiting user or a new one
+  const { accessToken, refreshToken } = generateToken(
+    (newUser && newUser._id) || isExistingUser._id,
+    (newUser && newUser.email) || isExistingUser.email,
+    (newUser && newUser.role) || isExistingUser.role
+  );
+  
+
+   //save refresh token to database conditionally
+if(newUser) {
+  newUser.refreshToken = refreshToken
+  await newUser.save();
+}else {
+  isExistingUser.refreshToken = refreshToken
+  await isExistingUser.save();
+}
+
+//hide the refresh token and password after saving to db to prevent it from appearing in response which is not secure
+ newUser? newUser.refreshToken = undefined : isExistingUser.refreshToken = undefined;
+ newUser? newUser.password = undefined : isExistingUser.password = undefined;
+
+  return res
+    .status(200)
+    .cookie("AccessToken", accessToken, {
+      httpOnly: true, //prevent xss attacks
+      secure: process.env.NODE_ENV === "production",
+      // sameSite: "strict", //CSRF cross site resource forgery attack
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 15 * 60 * 1000, //15min
+    })
+    .cookie("RefreshToken", refreshToken, {
+      httpOnly: true, //prevent xss attacks,cookie being accessed via js
+      secure: process.env.NODE_ENV === "production", //work only with https in production
+      // sameSite: "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000, //7day
+    })
+    .json(
+      new ApiResponse(
+        200,
+        { user: newUser || isExistingUser, accessToken },
+        "Logged in successfully"
+      )
+    );
+  
+})
 const logOut = asyncHandler(async (req, res, next) => {
   //check cookie in request for refresh token
   const refreshToken = req.cookies.RefreshToken;
@@ -382,4 +542,4 @@ const configureCookie = (res, accessToken, refreshToken) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, //7days
   });
 };
-export { signUp, logIn, logOut, thirdPartySignIn, tokenRefresh };
+export { signUp, logIn, logOut, thirdPartySignInWithGithub, thirdPartySignIn, tokenRefresh };

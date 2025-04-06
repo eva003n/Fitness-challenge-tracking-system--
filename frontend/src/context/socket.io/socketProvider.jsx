@@ -18,6 +18,7 @@ const SocketProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
   const { user } = useAuth();
 
+
   //functions
   const onConnect = () => {
     setIsConnected(true);
@@ -29,7 +30,6 @@ const SocketProvider = ({ children }) => {
 
   const onNotificatiion = (data) => {
     const newNotifications = [data, ...notifications];
-    console.log(newNotifications)
     setNotifications(newNotifications);
     // localStorage.setItem("notifications", JSON.stringify(newNotifications));
   };

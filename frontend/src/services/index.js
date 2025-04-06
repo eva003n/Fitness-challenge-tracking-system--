@@ -1,11 +1,11 @@
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import { retryRequest } from "../utils";
 //create and configure axios instance
-console.log(import.meta.env.VITE_API_BASE_URI)
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URI,
   withCredentials: true,
-  timeout: 1200000, //after 2mins
+  timeout: 120000, //after 2mins
 });
 
 //intercept request before sending
@@ -15,7 +15,7 @@ apiClient.interceptors.request.use((config) => {
   const accessToken = localStorage.getItem("token");
 
   if (accessToken) {
-    config.headers.Authorization = `Bearer ${accessToken}`
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
 
   return config;
@@ -27,15 +27,19 @@ apiClient.interceptors.response.use(
     return response.data;
   },
   async (error) => {
-    console.log(error)
+    console.log(error);
     //In axios errors can occur during the request abd in the resonse(mostly server errors
     if (error.code === "ERR_NETWORK") {
-      let currentToast = null
-      if(!toast.isActive(currentToast)){
+      let currentToast = null;
+      if (!toast.isActive(currentToast)) {
         currentToast = toast.error(`${error.message}, try again`);
       }
-    }else {
-      // toast.error(error.response.data.error || error.message);
+      const failedRequest = error.config;
+      //handle network errors
+      //if network error and axios has not attempted re-request
+      const timeout = 0
+
+  return retryRequest(apiClient, failedRequest, timeout)
     }
     //error that is returned from server
     if (error.response) {
@@ -43,28 +47,24 @@ apiClient.interceptors.response.use(
         //reference to original request
         const failedRequest = error.config;
         //if Unathorized and axios has not attempted re-request
-        let currentToast = null
-        if(!toast.isActive(currentToast)) {
-          currentToast = toast.error(error.response.data.error);
+        let currentToast = null;
+        if (!toast.isActive(currentToast)) {
+          currentToast = toast.error(error.response.data.error !== "Unauthorized request" && error.response.data.error);
         }
-      
-        
+
         if (
           error.response &&
-          error.response.status === 401 &&
-          !failedRequest._retry
+          error.response.status === 401 
         ) {
+          const timeout = 60000
           //logic to automatically send request a access token upon expiry
-
-          //when set to false causes an infinite loop request to the backend api
-          failedRequest._retry = true; //prevent infinite loop
 
           //make request to refresh access token,use response to set token State with new access token  and update authorization headers to new access token
           await handleTokenRefresh();
           //In case the request failed due to network error e.t.c
           //ensure theirs a request timeout to limit retries thus rpevent infinite loop
           //rerry original request
-          return apiClient(failedRequest);
+        return retryRequest(apiClient, failedRequest, timeout )
         }
       }
       //nay otheir errors
@@ -75,7 +75,7 @@ apiClient.interceptors.response.use(
 
       return Promise.reject(error.request);
     }
-    Promise.reject(error)
+   return Promise.reject(error);
   }
 );
 
@@ -98,6 +98,13 @@ const registerUser = async (data) => {
 const logInUser = async (data) => {
   return apiClient.post("/auth/login", data);
 };
+
+const thirdPartySignIn = async (authorizationCode, identityProvider) => {
+  return apiClient.post("/auth/oauth2", {
+    authorizationCode,
+    identityProvider,
+  });
+};
 const logOutUser = async () => {
   return apiClient.delete("/auth/logout");
 };
@@ -116,8 +123,8 @@ const getUsers = (page = 1, limit = 10) => {
       page: page,
       limit: limit,
     },
-  })
-}
+  });
+};
 
 //update user details
 const getUserProfile = async (userId) => {
@@ -135,22 +142,20 @@ const deleteUserAccount = async (userId) => {
 };
 const userStatistics = async () => {
   return apiClient.get("/users/admin/statistics");
-
-}
+};
 const updateStreaks = async (userId) => {
   return apiClient.put(`/users/${userId}/streaks`);
-  
-}
+};
 const getStreaks = async (userId) => {
   return apiClient.get(`/users/${userId}/streaks`);
-}
+};
 //challenge management
 const getAllChallenges = async (page = 1, limit = 10) => {
   return apiClient.get("/challenges", {
-    params:{
+    params: {
       page,
       limit,
-    }
+    },
   });
 };
 const getChallenges = async (page = 1, limit = 10) => {
@@ -160,7 +165,7 @@ const getChallenges = async (page = 1, limit = 10) => {
       limit: limit,
     },
   });
-}
+};
 const createChallenge = async (data) => {
   return apiClient.post("/challenges", data, {
     headers: {
@@ -183,20 +188,20 @@ const updateChallenge = async (data, challengeId) => {
     },
   });
 };
-const bookmarkChallenge = async(challengeId) => {
-  return apiClient.post(`/challenges/${challengeId}/bookmark`)
-}
-const challengeCompletionRate = async (page= 1, limit = 10) => {
+const bookmarkChallenge = async (challengeId) => {
+  return apiClient.post(`/challenges/${challengeId}/bookmark`);
+};
+const challengeCompletionRate = async (page = 1, limit = 10) => {
   return apiClient.get("/challenges/completionrate", {
     params: {
       page,
-      limit
-    }
+      limit,
+    },
   });
-}
+};
 const challengeStatistics = async () => {
   return apiClient.get("/challenges/admin/statistics");
-}
+};
 
 const searchChallenges = async (searchText) => {
   return apiClient.get("/challenges", {
@@ -250,12 +255,12 @@ const getUsersOverAllActivitySummary = async (userId) => {
 
 const getActivityProgress = async (userId, year, month) => {
   return apiClient.get(`/activities/progress/user/${userId}`, {
-    params:{
+    params: {
       year,
-      month
-    }
+      month,
+    },
   });
-}
+};
 const getNotifications = async (userId) => {
   return apiClient.get(`/notifications/user/${userId}`);
 };
@@ -266,27 +271,11 @@ const markNotificationAsRead = async (notificationId) => {
 
 //Oauth flow management'
 
-//make post request ti github authorization server with the auth code to get access token
-const getAuthorizationCode = async () => {
-  try {
-    const authorizationCode = new URLSearchParams(window.location.search).get(
-      "code"
-    );
-    //send authorization code to backend api
-    const response = await apiClient.post("/auth/github/oauth", {
-      authorizationCode,
-    });
-    return response;
-  } catch (e) {
-    await e.response;
-    console.log(e);
-    // toast.error(e.response && e.response.data.error);
-  }
-};
 export {
   handleTokenRefresh,
   registerUser,
   logInUser,
+  thirdPartySignIn,
   logOutUser,
   getUserProfile,
   createUser,
@@ -296,7 +285,6 @@ export {
   deleteUserAccount,
   updateStreaks,
   getAllChallenges,
-  getAuthorizationCode,
   createChallenge,
   getAllUserChallenges,
   deleteChallenge,
@@ -321,5 +309,5 @@ export {
   deleteAllActivities,
   getActivityProgress,
   getNotifications,
-  markNotificationAsRead
+  markNotificationAsRead,
 };

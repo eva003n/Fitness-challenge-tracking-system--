@@ -2,8 +2,6 @@ import dayjs from "dayjs"
 import mongoose from "mongoose";
 
 const formatAndConvertObjectId = (id) => new mongoose.Types.ObjectId(id);
-
-
 //working with dates
 
 //reset a given date to the start of the day

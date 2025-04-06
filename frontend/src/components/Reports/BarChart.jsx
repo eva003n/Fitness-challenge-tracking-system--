@@ -1,5 +1,5 @@
 import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer, Label } from "recharts"
-import {getWholeNumber} from "../../../utils/index"
+import { getWholeNumber } from "../../utils"
 const DATA = [
     {
       "name": "Day 1",

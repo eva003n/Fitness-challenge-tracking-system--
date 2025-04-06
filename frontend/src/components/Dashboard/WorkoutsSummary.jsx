@@ -3,7 +3,8 @@ import { getWorkoutSummary } from "../../services"
 import { useAuth } from "../../context/authProvider"
 import { motion } from "motion/react"
 import PieChartCompoenent from "../charts/PieChart"
-import { getWholeNumber } from "../../../utils/index"
+import { getWholeNumber } from "../../utils"
+
 
 const WorkoutsSummary = ({summary, isLoading}) => {
     const {user} = useAuth()

@@ -115,21 +115,21 @@ const userSchema = new Schema(
     ],
     refreshToken: {
       type: String,
-      select: false,
+      select: false,//hide token from query unless explictly included
     },
     
   },
   options
 );
-//custom hooks
-
+//pagination
 userSchema.plugin(aggregatePaginate);
-
+//custom hooks
 //before saving a creating  new user hash password
 userSchema.pre("save", async function (next) {
   //checks if the provided path is modified then returns true  else if no argument is passed returns true for all paths
+  //check if password is modified to avoid hasing the same password each time
   if (!this.isModified("password") || !this.password) {
-    //passowrd not modified
+    //passowrd not modified or it doesnt exist call next middleware
     return next();
   }
 

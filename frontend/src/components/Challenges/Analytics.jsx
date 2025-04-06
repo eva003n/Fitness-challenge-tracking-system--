@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import StatsCard from "../business/StatsCard";
 import { getChallengeAnalysis } from "../../services";
 import { SquareActivity } from "lucide-react";
-import { use } from "react";
-import { getWholeNumber } from "../../../utils";
+
+import { getWholeNumber } from "../../utils";
 const Analytics = ({ id, analytics  }) => {
 
 
