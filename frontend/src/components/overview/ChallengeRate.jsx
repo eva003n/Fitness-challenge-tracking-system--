@@ -52,7 +52,7 @@ const ChallengeRate = () => {
       </p>
 
       <ResponsiveContainer width="100%" height={220}>
-        <BarChart data={data && data || CHALLENGEcOMPLETIONRATE}>
+        <BarChart data={CHALLENGEcOMPLETIONRATE ||data && data}>
           <XAxis dataKey="title" />
           <YAxis />
           <Tooltip />
