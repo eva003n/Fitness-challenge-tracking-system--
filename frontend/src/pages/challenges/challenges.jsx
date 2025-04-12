@@ -159,7 +159,7 @@ const Challenges = () => {
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-[.6rem]">
-                        <p>Starts:</p>
+                        <p>Ends:</p>
                         <span className="font-medium">
                           {getDateByDay(challenge.Challenges.endDate)}
                         </span>
