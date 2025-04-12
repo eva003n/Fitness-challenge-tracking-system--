@@ -59,7 +59,7 @@ const ADMIN_LINKS = [
   { name: "Challenges", path: "/admin/challenges", color: "blue", icon: Plus },
   // { name: "Analytics", path: "/admin/analytics", color: "blue", icon: ChartLine },
   { name: "Users", path: "/admin/users", color: "blue", icon: Users },
-  { name: "Settings", path: "/admin/settings", color: "blue", icon: Settings },
+  // { name: "Settings", path: "/admin/settings", color: "blue", icon: Settings },
   // { name: "Notifications", path: "/admin/notifications", color: "blue", icon: Notify },
 ];
 
