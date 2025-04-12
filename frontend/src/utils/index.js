@@ -31,7 +31,7 @@ const getGoogleAuthorizationUrl = () => {
 
 }
 
-const retryRequest = (apiClient, request, ) => {
+const retryRequest = (apiClient, request, timeout ) => {
     const failedRequest = request
     const timeoutMs = setTimeout(() => {
     if(!failedRequest._retry) {
