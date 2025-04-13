@@ -112,6 +112,7 @@ authenticate()
             value={data.email}
             className="pl-10 dark:bg-slate-700"
             onChange={(e) => handleChange(e)}
+            autoComplete="off"
           />
           <div className="flex items-center justify-between">
             <Label htmlFor="password">Password</Label>
