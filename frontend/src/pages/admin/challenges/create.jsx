@@ -252,7 +252,7 @@ const CreateChallenge = () => {
               loader={true}
               name={isLoading ? "Creating ..." : "Create"}
               className="bg-violet-600 text-[1rem] tracking-wide text-white"
-              disabled={Object.values(data).some((value) => !value ) || isLoading}
+              disabled={ isLoading}
 
               // disabled={Object.values(data).some((value) => !value === "duration" || !value)}
             ></Button>
