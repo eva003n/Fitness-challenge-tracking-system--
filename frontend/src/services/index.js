@@ -243,6 +243,7 @@ const getActivityByChallange = async (challengeId) => {
 const deleteActivity = async (activityId) => {
   return apiClient.delete(`/activities/activity/${activityId}`);
 };
+
 const updateActivity = async (activityId, data) => {
   return apiClient.put(`/activities/activity/${activityId}`, data);
 };

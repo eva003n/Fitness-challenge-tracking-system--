@@ -60,7 +60,7 @@ const Navbar = ({ ...props }) => {
           <Button name={
             <NavLink
             to={"/login"}
-            className="nav-top text-gray-700 dark:text-gray-100  rounded-md md:bg-violet-600 px-4 py-1.5 tracking-wider "
+            className="nav-top text-gray-700 dark:text-gray-100  rounded-md md:bg-violet-600 md:text-gray-100 px-4 py-1.5 tracking-wider "
             onClick={() => logInState(true)}
           >
             Log in

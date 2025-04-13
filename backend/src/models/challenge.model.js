@@ -1,8 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import options from "./index.js";
-
 import  aggregatePaginate from "mongoose-aggregate-paginate-v2";
-import logger from "../logger/logger.winston.js";
 
 const challengeSchema = new Schema(
   {
@@ -21,7 +19,7 @@ const challengeSchema = new Schema(
       type: String,
       trim: true,
       minlength: [3, "Workout type must be at least 3 charactes long"],
-      required: [true, "Workout type os required"],
+      required: [true, "Workout type is required"],
     },
     image: {
       imageId: {

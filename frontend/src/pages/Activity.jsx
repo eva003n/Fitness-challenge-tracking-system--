@@ -1,4 +1,3 @@
-import CheckBox from "../components/common/checkbox";
 import { useEffect, useState } from "react";
 import DataTable from "../components/common/DataTable";
 import { getAllActivities } from "../services";

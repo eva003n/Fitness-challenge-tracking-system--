@@ -45,7 +45,7 @@ try {
     return () => {
       socket.off(SOCKETEVENTENUM.UPDATE_USER_STREAK);
     };
-  }, []);
+  }, [socket]);
   return (
     <div className="flex items-center gap-1">
       <div
