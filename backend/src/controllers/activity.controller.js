@@ -66,7 +66,7 @@ const createActivity = asyncHandler(async (req, res, next) => {
     calories,
     distanceCovered,
     date,
-  }, { session });
+  });
  
   session.commitTransaction();
   session.endSession();
