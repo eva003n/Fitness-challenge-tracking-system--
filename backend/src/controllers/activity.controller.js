@@ -538,9 +538,14 @@ const activityProgress = asyncHandler(async (req, res, next) => {
 });
 const getUserAtivitySummary = asyncHandler(async (req, res, next) => {
   const { user_id } = req.params;
+  let {year, month } = req.query
+  const {error:paramsError, value} = querySchema.validate({year, month})
 
   const { error } = paramsSchema.validate({ user_id });
   if (error) return next(ApiError.badRequest(400, formatError(error.message)));
+
+  year = parseInt(year) || new Date().getFullYear()
+  month = parseInt(month) || new Date().getMonth() + 1
 
   const summaryAggregation = [
     {
@@ -553,7 +558,7 @@ const getUserAtivitySummary = asyncHandler(async (req, res, next) => {
                 {
                   $year: "$date"
                 },
-                2025
+                year
               ]
             },
             {
@@ -561,7 +566,7 @@ const getUserAtivitySummary = asyncHandler(async (req, res, next) => {
                 {
                   $month: "$date"
                 },
-                3
+                month
               ]
             }
           ]
@@ -601,8 +606,8 @@ const getUserAtivitySummary = asyncHandler(async (req, res, next) => {
 
   const activitySummary = await Activity.aggregate(summaryAggregation);
  
-  if (activitySummary && activitySummary.length === 0)
-    return 
+  // if (activitySummary && activitySummary.length === 0)
+  //   return 
   // next(ApiError.notFound(404, "No activity summary exists"));
 
   return res
