@@ -53,7 +53,8 @@ const Challenges = () => {
   const handleDeleteChallenge = async (challengeId) => {
     try {
       const resp = await deleteChallenge(challengeId);
-      if (resp.success) {
+      if (resp && resp.success) {
+        handleDeleteBookmark(challengeId)
         setChallenges(
           challenges.filter(
             (challenge) => challenge.Challenges.challenge_id !== challengeId
@@ -74,6 +75,11 @@ const Challenges = () => {
   const handleStreaks = async () => {
     await updateStreaks(user._id);
   };
+  const handleDeleteBookmark = (id) => {
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    const newBookmarks = bookmarks.filter((bookmark) => String(bookmark._id) === String(id));
+    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+  }
   const handleStatusUpdate = async (challengeId, status) => {
     try {
       if (status === "Pending") {

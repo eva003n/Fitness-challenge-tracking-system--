@@ -44,7 +44,20 @@ const getPublicChallenges = asyncHandler(async (req, res, next) => {
       }
     },
     {
-      $sort: { createdAt: -1 },//latest created
+      $addFields: {
+        remainingDays: {
+          $divide: [
+            {
+              $subtract: ["$endDate", "$$NOW"],
+            },
+            1000 * 60 * 60 * 24, //1 day
+          ],
+      }
+
+    }
+  },
+    {
+      $sort: { remainingDays: 1 },//due date based on current date
     },
     {
       $project: {
