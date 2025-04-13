@@ -46,7 +46,7 @@ const body = () => {
       <td className="py-2">
         <Button
           name={data && data.status}
-          className="bg-green-800 text-black"
+          className="bg-green-800 text-gray-100"
           onClick={() => {
             handleCompleted( data._id)
           }}
@@ -148,7 +148,7 @@ setIsSubmit
                     <td className="py-2">
                       <Button
                         name={data && data.status}
-                        className="bg-green-800 text-black"
+                        className="bg-green-800 text-gray-100"
                         onClick={() => {
                           handleCompleted( data._id)
                         }}

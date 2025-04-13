@@ -299,7 +299,7 @@ const Challenge = () => {
         ? await createActivity(data)
         : await updateActivity(data._id, data);
 
-      if (response.success) {
+      if (response && response.success) {
         setIsLoading(false);
         toast.info(response.message);
         //causethe use effect to re-render and set updated data
@@ -394,6 +394,7 @@ const Challenge = () => {
           <DataTable
             tableData={paginate(
               filterActivities(activities, searchText),
+              
               startIndex
             )}
             handleFilter={handleFilter}

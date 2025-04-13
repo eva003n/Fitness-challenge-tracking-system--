@@ -39,7 +39,7 @@ const Explore = () => {
             try {
                 setIsLoading(true)
                 const response = await getAllChallenges(paginate.page, paginate.limit);
-           if(response.success) {
+           if(response && response.success) {
             setChallenges(response.data.challenges)
             setPaginate(response.data.pagination)
             setIsLoading(false)
@@ -59,8 +59,10 @@ const Explore = () => {
     }
     const handleBookmark = async (challengeId) => {
        try {
+        const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || []
+        const isBookmarked = checkBookmarked(challengeId, bookmarks)
          const response = await bookmarkChallenge(challengeId)
-         if(response.success) {
+         if(response.success && !isBookmarked) {
             //local bookmark state to store id of bookmarkled challenges
          const newBookmarks = [...bookmarks, {
             _id: challengeId
@@ -196,11 +198,18 @@ const Explore = () => {
 
                   <div className="flex justify-end">
                   <Button
-                  icon={Bookmark}
                   onClick={() => handleBookmark(challenge._id)}
                 //   className="fill-violet-300"
-                  className={`${checkBookmarked(challenge._id, bookmarks) ? "fill-violet-600 " : ""} `}
-                  />
+                 
+                  >
+                    <Bookmark
+                      size={20}
+                      className={`${
+                        checkBookmarked(challenge._id, bookmarks)?
+                        "fill-violet-600" : "text-gray-100"
+                      }`}
+                    />
+                  </Button>
                   </div>
                 </div>
               </ListItem>
