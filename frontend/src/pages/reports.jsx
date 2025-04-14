@@ -87,7 +87,7 @@ const Reports = () => {
           <div className="flex items-center gap-4">
             <Button
               name={isLoading && "Generating..."}
-              icon={!isLoading ? Download : Loader}
+              icon={isLoading && Loader}
               className="bg-violet-600 hover:bg-violet-700 text-gray-100"
               loader={isLoading}
               isLoading={isLoading}
