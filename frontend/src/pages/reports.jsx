@@ -86,7 +86,7 @@ const Reports = () => {
         <div className="mb-4 flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-4">
             <Button
-              name={isLoading ? "Generating..." : "Download report"}
+              name={isLoading && "Generating..."}
               icon={!isLoading ? Download : Loader}
               className="bg-violet-600 hover:bg-violet-700 text-gray-100"
               loader={isLoading}
