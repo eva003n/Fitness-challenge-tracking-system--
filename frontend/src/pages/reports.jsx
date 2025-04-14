@@ -12,7 +12,7 @@ import { FilterX, Loader, Download } from "lucide-react";
 import Button from "../components/common/Button";
 import UserSummaryReport from "../components/Reports/SummartReport";
 import Scrim from "../components/common/Scrim";
-import {jsPDF} from "jspdf";  
+import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
 const METRICS = [
@@ -70,36 +70,37 @@ const Reports = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
   };
   const generatePdf = () => {
-    const contentArea = reportRef.current
-    const doc = new jsPDF()
-  }
+    const contentArea = reportRef.current;
+    const doc = new jsPDF();
+  };
   return (
     <Container>
       <div className="mx-auto max-w-[65rem]">
         {isOpen && (
           <Scrim onShow={handleShow}>
-      {/* printable content */}
+            {/* printable content */}
 
             <UserSummaryReport ref={reportRef} metrics={data && data} />
           </Scrim>
         )}
         <div className="mb-4 flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-4">
-            <Button
-              name={isLoading && "Generating..."}
-              icon={isLoading && Loader}
-              className="bg-violet-600 hover:bg-violet-700 text-gray-100"
-              loader={isLoading}
-              isLoading={isLoading}
-            />
-           {
-            !isLoading && (
-              <Button 
-              name={"Preview"}
-              className="bg-violet-600 hover:bg-violet-700 text-gray-100"
-              onClick={handleShow} />
-            )
-           }
+            {isLoading && (
+              <Button
+                name={isLoading && "Generating..."}
+                icon={isLoading && Loader}
+                className="bg-violet-600 text-gray-100 hover:bg-violet-700"
+                loader={isLoading}
+                isLoading={isLoading}
+              />
+            )}
+            {!isLoading && (
+              <Button
+                name={"Preview"}
+                className="bg-violet-600 text-gray-100 hover:bg-violet-700"
+                onClick={handleShow}
+              />
+            )}
           </div>
           <div className="flex w-full items-center justify-between md:w-auto">
             <div className="flex items-center gap-2">
